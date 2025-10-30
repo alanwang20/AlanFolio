@@ -1,10 +1,19 @@
 import { Mail, Linkedin, Github, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 export default function ContactSection() {
+  const { ref, isVisible } = useScrollAnimation();
+
   return (
-    <section id="contact" className="relative py-24 px-6">
+    <section
+      id="contact"
+      ref={ref}
+      className={`relative py-24 px-6 transition-all duration-1000 ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+      }`}
+    >
       <div className="max-w-6xl mx-auto">
         <div className="text-center space-y-4 mb-12">
           <h2 className="text-4xl font-bold" data-testid="text-contact-title">

@@ -1,6 +1,7 @@
 import { Briefcase, Calendar, TrendingUp } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const experiences = [
   {
@@ -55,8 +56,16 @@ const experiences = [
 ];
 
 export default function ExperienceSection() {
+  const { ref, isVisible } = useScrollAnimation();
+
   return (
-    <section id="experience" className="relative py-24 px-6">
+    <section
+      id="experience"
+      ref={ref}
+      className={`relative py-24 px-6 transition-all duration-1000 ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+      }`}
+    >
       <div className="max-w-6xl mx-auto">
         <div className="flex items-center gap-3 mb-12">
           <Briefcase className="h-8 w-8 text-primary" />
