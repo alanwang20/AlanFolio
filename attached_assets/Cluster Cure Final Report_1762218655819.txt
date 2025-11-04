@@ -1,0 +1,182 @@
+# Cluster Cure: Final Report
+Kaylene Gell | Hannah Quintal | Alan Wang | Yee Ching Lau | AJ Subudhi
+
+## 1. Introduction & Background
+
+Access to healthcare is an integral determinant of preventable hospitalizations. Ambulatory Care Sensitive Conditions (ACSCs) are those that, given outpatient care, should not cause hospital admission [1]. Identifying areas with inadequate healthcare access, "health deserts", can help reduce instances of avoidable hospitalizations. Existing ACSCs prediction models leverage patient data to ascertain preventable admission risk factors [2]. Machine learning methods like spatial clustering are used to map/standardize food deserts in association with socioeconomic data [3]. Adapting these techniques for healthcare, we can systematically identify "health deserts" while stratifying their severities. These disproportionately affect communities with limited transportation and higher socioeconomic barriers, aligning with the CDC's Social Determinants of Health (SDH) framework for uneven healthcare access [4].
+
+## 2. Problem Definition
+
+Health deserts arise from an insufficient number of healthcare providers in a region, long travel distances to healthcare facilities, high service costs, and insurance limitations. The majority of current literature only shows where these deserts are located, not the severity of these deserts.
+
+We aim to identify severity levels of health deserts at the county level in Georgia. We will then use these levels to predict avoidable healthcare visits, particularly determining which SDHs impact visits. With visits being costly, our motivation for the project is to help identify ways for Georgia to minimize these visits and maximize healthcare equity.
+
+### Dataset
+
+1. University of Georgia: Population Dataset
+   - Demographic aspects: age, sex, race, migration, urban/rural distribution. Detailed breakdowns by locations, population changes, and density trends.
+
+2. University of Georgia: Health Dataset
+   - Healthcare landscape: information on hospitals, nursing facilities, Medicare, and prevalence of infectious diseases.
+
+3. OASIS: Emergency Room Visits Web Query
+   - Online Analytics Statistical Information Systems tool: generates ER visits for specific reasons. Emergency room utilization for different causes: injuries, illnesses, and other conditions
+
+## 3. Methods
+
+To start, we will utilize data preprocessing techniques to prepare. Datasets will be joined by county. Data will be explored visually using EDA to find patterns or issues. Next, we will encode predictors and deploy data cleaning techniques. With data ready to use, we can perform regularization and dimensionality reduction with LASSO and PCA to find high contributing factors. Lastly, the data will be split into training and testing for modeling.
+
+The first ML algorithm we will use is Hierarchical Clustering. We can use elbow diagrams to find the optimal number of 'clusters' representing levels of health deserts and outlining metrics for labeling. With data clustered, this will be used to input our next models. We will create an SVM model to predict avoidable hospitalizations. Following this, we will use our models to understand what would provide the most value to our project. We anticipate creating a random forest model that will analyze which SDHs have the highest impact on ER visits.
+
+## 4. Results and Discussion
+
+### 4.1. Dataset Visualization
+
+As discussed, we began the project by completing some EDA on the joined data. We intended to create visuals to further explore the need for our work. The first visual below displays hospital visits by county, followed by the population size, and the last visual displays the proportion of visits to the population size.
+
+![Hospital visits by county](images/hospital_visits.png)
+![Population size by county](images/population_size.png)
+![Proportion of visits to population](images/visit_proportion.png)
+
+These visuals gave us a strong reason to continue with the project as the number of hospitals or population size are not the only thing affecting the hospital visits. We continue to explore the data and pre-process to prepare for model creation.
+
+### 4.2. Principal Component Analysis
+
+The first dimensionality reduction tool we used was principal component analysis. We elected to examine the top ten contributing components to the datasets variability. The first principal component explained about 52% of the variability. This variable was the percentage of population below forty. The second principal component of median age explained about 14%. Following this racial makeup of the county explained ~6%, amount of combined racial makeup explained 4%, physicians in the county explained 3%, percentage of age above forty explained 3%, percentage of population below thirty 2%, number of uninsured under the age of 19 explained 2%, median hispanic age explained 1%, and nursing home average occupancy explained 1%.
+
+From this you can see a theme that age severely affects our data, as well as the racial makeup and changes of the county.
+
+The first visual below, shows the impact that principal component one has on hospital visit proportion, an outcome we are looking to understand further.
+
+![Impact of PC1 on hospital visit proportion](images/pc1_impact.png)
+
+The figure below depicts the scree plot with our ten principal components and their explained variance.
+
+![Scree plot](images/scree_plot.png)
+
+Moving forward, we completed LASSO to compare results and finalize data pre-processing before model creation.
+
+### 4.3 LASSO Regression
+
+To cross-reference the results of principal component analysis, LASSO regression was run on the data set to reduce the dimensionality. Twenty-one features were identified that contribute most heavily to the proportion of hospital visits by updated (2023) population in each county; this ratio was selected as the target of LASSO. These twenty-one features were juxtaposed with the lead contributors to the aforementioned principle components to identify a resulting fifteen features that appear amongst both preprocessing methods.
+
+The final dimensions include:
+
+* 2023 Median Age, Male
+* 2023 Median Age, Female
+* 2022 All Sexually Transmitted Diseases Reported Cases Rate per 100,000 Population
+* 2020 Population, White Alone, %
+* 2022 Gonorrhea Rate per 100,000 Population
+* 2023 Population 15-19 Years, %
+* 2023 Population 18 and Over, %
+* 2020-2022 Population, Black Alone, % Change
+* 2023 General Hospital Total Occupancy Rate
+* 2023 VA Expenditures, Medical, %
+* 2022 Rank of Rate
+* 2022 Uninsured Under Age 19, At or Below 200% Poverty, %
+* 2020 Median Age, Black, Male
+* 2018-2022 Foreign Born, %
+* 2023 Rural-Urban Continuum Code
+
+![LASSO feature importance](images/lasso_importance.png)
+
+The visualization above outlines the contribution of each of these features to the target hospital visit proportion. Evidently, '2022 Rank of Rate' and '2023 Population 18 and Over, Percent' influence the proportion the most, and in a negative way. The feature that most positively impacts this proportion is '2022 All Sexually Transmitted Diseases Reported Cases Rate per 100,000 Population'.
+
+### 4.4. Hierarchical Clustering
+
+Following the visualization, PCA, and LASSO regression steps, our team ran hierarchical clustering on a reduced, scaled data frame containing the final dimensions highlighted in 4.3. We produced an elbow method diagram as well as a plot of silhouette score versus number of clusters to determine an optimal value k of clusters into which we eventually segmented our data.
+
+![Elbow method diagram](images/elbow_method.png)
+![Silhouette score vs clusters](images/silhouette_score.png)
+
+The "elbow" in our elbow method diagram appears around k = 5. While our silhouette diagram shows silhouette score maximized at k = 2 with a value of about 0.214, the score does not drop significantly as we progress to k = 5. Thus, after we performed hierarchical clustering (using Ward's linkage to minimize the increase in the error sum of squares when merging clusters) on our reduced and scaled data, we segmented our dendrogram into k = 5 clusters. This dendrogram can be seen with the five different clusters highlighted in the diagram below.
+
+![Dendrogram](images/dendrogram.png)
+
+Below are mean statistics on each of the five clusters that give us insights into their key differences.
+
+![Cluster statistics](images/cluster_stats.png)
+
+We can see that, for example, Cluster 1 has the highest level of average STDs reported per 100,000 people in each county in 2022, while Cluster 5 has the oldest average median age of black males in each county in 2022. Cluster 3, which only contains four counties and is noticeably separated from our other clusters (as shown by the green dots in the plot on the next page), will be of interest to further analyze later on.
+
+![Cluster visualization](images/cluster_viz.png)
+
+### 4.5. Supervised Learning Methods for Cluster Membership
+
+To develop our supervised learning model, we defined '% Preventable Visits' as the outcome variable. This metric was derived from the Georgia OASIS Database, which includes detailed county-level visit data. Out of 178 distinct visit reasons, we manually categorized each as either Preventable or Non-preventable, and calculated the percentage of preventable visits per county.
+
+Prior to model training, five rows were removed due to missing values, one column ('2023 General Hospital Total Occupancy Rate') was dropped due to a significant amount of missing values, and several columns required numeric conversion to address formatting inconsistencies, including '2022 Gonorrhea Rate per 100,000 Population', '2022 Rank of Rate', and '2023 Rural-Urban Continuum Code'.
+
+We then merged this outcome data with the LASSO-selected and hierarchically-clustered features derived from our original dataset.
+
+The data was then split into an 80% training and 20% testing set. Predictor variables were standardized, and we evaluated the performance of four regression models:
+
+![Model performance comparison](images/model_performance.png)
+
+Random Forest achieved the lowest RMSE and highest R², indicating the best overall performance. Upon tuning the Random Forest parameters for boosted performance,  we performed feature evaluation and SHAP feature importance within the best performing model and obtained the following results:
+*  Best Hyperparameters: {'max_depth': 10, 'max_features': 'sqrt', 'min_samples_leaf': 4, 'min_samples_split': 2, 'n_estimators': 100}
+*  Tuned  RMSE: 0.8764, R2 Score: 0.2623
+
+
+![Feature importance - Random Forest](images/feature_importance_rf.png)
+![SHAP Feature importance - Random Forest](images/shap_importance_rf.png)
+
+The most prevalent feature across both analyses, 2023 Rural-Urban Continuum Code, is given by the government at a county level representing the urbanization degree of the country or adjacency to a metropolitan area. It displays there is a large impact of population and accessibility on avoidable hospital visits. Among the other prevalent features, we saw a recurring theme of age, race, and sexually transmitted disease rates. While our cluster labels were listed within variables with high feature importance, we noted the importance ranking was lower comparatively.
+
+Since the cluster ranking was listed within important features, we re-ran the model within each cluster from our hierarchical clustering to assess whether localized modeling might be able to improve accuracy.
+
+![Cluster-specific model performance](images/cluster_model_performance.png)
+
+Notably:
+* Cluster 4 achieved the best localized performance, with RMSE = 0.78 and R² = 0.19, closely mirroring the full dataset model.
+* Cluster 1 had marginal predictive improvement (R² = 0.049), while Clusters 2 and 5 experienced degraded performance.
+* Cluster 2 and 5 are especially notable for their poor performance using Random Forest, despite having a large amount of observations. This suggests that the predictive features when applied in this group might not be captured well by the model in relation to the outcome variable.
+* Cluster 3 was too small (3 counties) to evaluate reliably, as R² is undefined due to lack of variance in the test set.
+
+Overall Analysis:
+* RMSEs around 0.78 indicate that models are, on average, off by less than 1 percentage point, which is fairly accurate (values for the outcome variable, '% of Preventable Visits' range from 5-12%).
+* R² values for both the different training models, and the cluster models are quite low.
+* Cluster-based modeling uncovers that there may be an issue with how features are being processed in clusters 2 and 5, and may be a cause of lowered performance for model training.
+
+To compare if the features importance are consistent between the global models and the local models, we also performed feature evaluations on the best performing clusters and obtained the following results:
+
+![Feature importance - Cluster 4 Random Forest](images/feature_importance_cluster4.png)
+![SHAP Feature importance - Cluster 4 Random Forest](images/shap_importance_cluster4.png)
+
+From the graphs above, we can observe a discrepancy between the most important features between the global model and the local model. The discrepancy is foreseeable as each cluster has its unique demographics, in which geographical factors that work well such as "2023 Rural-Urban Continuum Code" might not be differentiable enough for a relatively homogenous dataset. It is also worth noting that the limited data points can potentially skew the results of cluster models.
+
+## 5. Conclusion
+
+Our county‑level analysis of "health deserts" in Georgia revealed important insights, however, it presented several limitations from exogenous factors. Due to the decentralized nature of public health data, often unavailable without IRB access, and the modest sample sizes, we were forced to overgeneralize results by county. Hierarchical clustering offered little benefit for supervised learning and as a result, model fits remained low with R² values slightly below industry norms. Our clusters showed distinct characteristics (e.g., STD prevalence) but accuracy was not high enough for proper severity ranking. Holistically, this underscored a need for richer, more accessible data and additional feature engineering.
+
+Potential next steps:
+* Redefine clustering
+  Re‑examine cluster assignments to create more cohesive groupings, as more homogeneous clusters may enhance local model accuracy. Additionally, attempt alternative clustering methods.
+* Expand and centralize data sources
+  Seek partnerships with private health companies or obtain IRB approval to access more granular patient and facility level datasets, which could support more robust modeling and allow better spatial exploration of preventable hospitalizations.
+
+## Contribution Table
+
+| Name | Contributions |
+|------|--------------|
+| Kaylene | EDA, PCA, Slides |
+| Hannah | LASSO, Contextualization, Report Formatting |
+| AJ | Clustering Analysis and Visualizations |
+| Alan | Datasets, Supervised Learning |
+| Marcus | Visualizations, Quantitative Metrics, Supervised Learning |
+
+## Gantt Chart
+
+![Gantt chart timeline](images/gantt_chart.png)
+
+## 5. References
+
+[1] C. Loyd et al., "National norms for hospitalizations due to ambulatory care sensitive conditions among adults in the US," Journal of general internal medicine, https://pmc.ncbi.nlm.nih.gov/articles/PMC10027258/ (accessed Feb. 19, 2025).
+
+[2] *Department of Veterans Affairs, "Predicting potentially avoidable hospitalizations : Medical care," LWW, https://journals.lww.com/lww-medicalcare/abstract/2014/02000/predicting_potentially_avoidable_hospitalizations.12.aspx (accessed Feb. 19, 2025).
+
+[3] M. D. Amin, S. Badruddoza, and J. J. McCluskey, "Predicting access to healthful food retailers with machine learning," Food policy, https://pmc.ncbi.nlm.nih.gov/articles/PMC7564312/ (accessed Feb. 19, 2025).
+
+[4] National Center for Chronic Disease Prevention and Health Promotion (Dr Hacker), "Social Determinants of health-an approach taken at CDC : Journal of Public Health Management and Practice," LWW, https://journals.lww.com/jphmp/Citation/2022/11000/Social_Determinants_of_Health_An_Approach_Taken_at.1.aspx (accessed Feb. 19, 2025).
+
+[5] Gupta, Avi, et al. "Determining a Meaningful R-Squared Value in Clinical Medicine." Academic Medicine & Surgery, University Medical Press, 27 Oct. 2024, academic-med-surg.scholasticahq.com/article/125154-determining-a-meaningful-r-squared-value-in-clinical-medicine.
