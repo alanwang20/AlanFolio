@@ -1,6 +1,6 @@
 import { Linkedin, Github, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import profileImage from '@assets/generated_images/Professional_headshot_for_Alan_Wang_9ec18444.png';
+import profileImage from '@assets/headshot_updated-1_1762218703663.jpg';
 import AnimatedBackground from './AnimatedBackground';
 
 export default function HeroSection() {

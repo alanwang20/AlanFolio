@@ -50,8 +50,8 @@ export default function AnimatedBackground() {
     const animate = () => {
       if (!ctx || !canvas) return;
 
-      mousePos.current.x += (targetPos.current.x - mousePos.current.x) * 0.1;
-      mousePos.current.y += (targetPos.current.y - mousePos.current.y) * 0.1;
+      mousePos.current.x += (targetPos.current.x - mousePos.current.x) * 0.35;
+      mousePos.current.y += (targetPos.current.y - mousePos.current.y) * 0.35;
 
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
