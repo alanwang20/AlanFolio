@@ -36,9 +36,10 @@ export default function HeroSection() {
                 data engineering and machine learning solutions.
               </p>
               <p className="text-muted-foreground">
-                Incoming Analytics Leadership Development Program Intern at Cigna Group. Previously
-                drove impactful insights at Centene Corporation, optimizing call center operations
-                and recovery analytics for millions of members.
+                Incoming Lead Analyst (Analytics Leadership Development Program) at Cigna Group. Previously 
+                drove impactful insights at Cigna Group and Centene through engineering KPIs, building 
+                predictive models, and automating large-scale data pipelines to support decision-making 
+                and value-based care.
               </p>
             </div>
 

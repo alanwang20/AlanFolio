@@ -5,13 +5,25 @@ import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const experiences = [
   {
-    title: 'Analytics Leadership Development Program (ALDP) Intern',
+    title: 'Lead Analyst, Analytics Leadership Development Program',
     company: 'Cigna Group',
-    period: 'May 2025 – Aug 2025',
+    period: 'July 2025',
     location: 'Incoming',
     description: [],
     skills: [],
     isUpcoming: true,
+  },
+  {
+    title: 'Data Science Intern, Analytics Leadership Development Program',
+    company: 'Cigna Group',
+    period: 'May 2025 – Aug 2025',
+    location: 'Remote',
+    description: [
+      'Conducted feature testing experiments on in-production account-level renewal risk models in Databricks, engineering 7,500+ clinical features from member-level data for account-level feature testing',
+      'Validated experiment models against baseline models and identified a high-impact signal from features tied to significant model improvement',
+      'Designed and tested R&D proposals for aggregating member-level data into account-level features using tensor representations and multi-level modeling, exploring alternatives to historical feature engineering methods used by team over the past five years',
+    ],
+    skills: ['Databricks', 'Python', 'Feature Engineering', 'Predictive Modeling', 'Healthcare Analytics'],
   },
   {
     title: 'Data Engineering Intern',
@@ -20,10 +32,8 @@ const experiences = [
     period: 'May 2024 – Aug 2024',
     location: 'Remote',
     description: [
-      'Led 4 end-to-end exploratory initiatives including bot centrality analysis, agent staffing, authentication failure, and pre-emptive caller dropout model',
-      'Leveraged Python and SQL to extract data from Snowflake, engineer 10+ KPIs, cluster 50+ bots, and develop visualizations',
-      'Discovered 10 bot processes impacting authentication rates for 750,000+ yearly callers and 3 daily discrepancies between agent staffing and call volume',
-      'Presented findings to 150+ stakeholders through business reports and technical documentation, outlining key focus areas to optimize call center operations',
+      'Led 4 projects utilizing Python/SQL to explore bot routing, agent staffing, authentication failure, and caller dropout. Analyzed data from Snowflake, engineered 10+ KPIs, clustered 50+ bots, and built business-oriented and data-driven visualizations',
+      'Uncovered 10 bot routing inconsistencies affecting 750K+ annual callers and 3 daily staffing misalignments with call volume. Presented findings to 150+ stakeholders to guide call center optimization',
     ],
     skills: ['Python', 'SQL', 'Snowflake', 'Data Visualization', 'Call Center Analytics'],
   },
@@ -34,9 +44,8 @@ const experiences = [
     period: 'May 2023 – Aug 2023',
     location: 'Remote',
     description: [
-      'Collaborated with stakeholders from Centene\'s Recovery Platform (CRP) to identify 7 operational KPIs and deploy a live Power BI dashboard to production',
-      'Orchestrated analytics engineering pipeline, configuring and deploying 50+ Snowflake objects (Streams, Tasks, Tables, Views) from Confluent Cloud across Git environments',
-      'Optimized semi-hourly extraction and transformation of unstructured data for loading into Power BI',
+      'Partnered with Recovery Platform teams to identify 7 critical KPIs for recovery claims performance, deployed live dashboard to production',
+      'Engineered end-to-end analytics production pipeline and deployed 50+ Snowflake objects (Streams, Tasks, Views) to extract unstructured JSON data from Confluent Cloud, transform it into structured tables, and load it into Power BI for semi-hourly reporting',
     ],
     skills: ['Power BI', 'Snowflake', 'Confluent Cloud', 'Analytics Engineering', 'ETL'],
   },
@@ -46,12 +55,32 @@ const experiences = [
     period: 'May 2022 – Dec 2022',
     location: 'Remote',
     description: [
-      'Automated new-hire entitlement granting processes using Python (Selenium), reducing processing time per entitlement by 55%',
-      'Reduced onboarding time from 2 months to under 30 minutes, with projected cost savings of up to $170M annually',
-      'Conducted surveys (Qualtrics) and interviews with hiring managers to uncover 3 key bottlenecks in the new-hire onboarding process',
-      'Researched access-control systems and presented findings to business and technical teams',
+      'Automated onboarding process via Python (Selenium), cutting entitlement processing time by 55% and onboarding time from 2 months to 30 minutes (projected $170M savings)',
+      'Led surveys and interviews to identify 3 onboarding bottlenecks and presented solutions to drive onboarding/entitlement process redesign',
     ],
-    skills: ['Python', 'Selenium', 'Process Automation', 'Qualtrics', 'Product Management'],
+    skills: ['Python', 'Selenium', 'Process Automation', 'Product Management'],
+  },
+  {
+    title: 'Information Systems / Technology Intern',
+    company: 'Global Connect Group',
+    period: 'Jan 2022 – Jan 2023',
+    location: 'Remote',
+    description: [
+      'Supported the group\'s platform-as-a-service model by troubleshooting SQL-hosted variable errors and integrating multiple business models across diverse sectors',
+      'Managed online marketing content via SquareSpace while fostering strong relationships with CEOs and executives to align technical and business goals',
+    ],
+    skills: ['SQL', 'SquareSpace', 'Business Integration'],
+  },
+  {
+    title: 'Account Executive Intern',
+    company: 'Flex ATL',
+    period: 'May 2021 – Jun 2021',
+    location: 'Atlanta, GA',
+    description: [
+      'Fundraised for the International Fund for Animal Welfare through direct marketing, developing strong skills in public speaking, customer engagement, and product promotion',
+      'Collaborated with Regional Managers and Corporate Trainers to refine interpersonal communication and professional networking skills',
+    ],
+    skills: ['Direct Marketing', 'Public Speaking', 'Customer Engagement'],
   },
 ];
 
@@ -70,7 +99,7 @@ export default function ExperienceSection() {
         <div className="flex items-center gap-3 mb-12">
           <Briefcase className="h-8 w-8 text-primary" />
           <h2 className="text-4xl font-bold" data-testid="text-experience-title">
-            Experience
+            Professional Experience
           </h2>
         </div>
 

@@ -7,13 +7,13 @@ const skillCategories = [
   {
     title: 'Languages',
     icon: Code2,
-    skills: ['Python', 'SQL', 'R', 'Java', 'HTML/CSS'],
+    skills: ['Python', 'SQL', 'Java', 'HTML/CSS'],
     libraries: ['Pandas', 'NumPy', 'scikit-learn', 'Tidyverse', 'XGBoost', 'RandomForest'],
   },
   {
     title: 'Data Processing',
     icon: Database,
-    skills: ['Snowflake', 'Apache Spark', 'Docker', 'Kubernetes'],
+    skills: ['Snowflake', 'Apache Spark (PySpark)'],
     libraries: ['Web Scraping', 'Web APIs', 'MySQL', 'SQLite', 'Postgres'],
   },
   {

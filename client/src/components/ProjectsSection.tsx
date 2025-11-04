@@ -1,35 +1,107 @@
-import { Folder, ExternalLink, Award } from 'lucide-react';
+import { Folder, User, GraduationCap } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
-const projects = [
+const personalProjects = [
   {
-    title: 'SDoH Analysis for Health Desert Identification and ER Visit Prediction',
+    title: 'Agentic Website Development (This site!)',
     description:
-      'Engineering a county-level Georgia dataset with 200+ Social Determinants of Health (SDoH) features including ER, public health, and demographic data. Applying PCA and LASSO to isolate 15 key predictors of preventable ER visits. Clustering counties by SDoH profiles to define health desert severity levels, and training supervised models (SVM, Random Forest) to predict preventable ER visits tied to SDOH feature representation across clusters.',
-    technologies: ['Python', 'PCA', 'LASSO', 'SVM', 'Random Forest', 'Healthcare Analytics'],
-    category: 'Healthcare ML',
+      'Developing a personal branding website on Replit, built with React, TypeScript, and Tailwind CSS, designed to dynamically showcase résumé content, projects, and experiences through a modern, responsive interface.',
+    technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Replit'],
     status: 'In Progress',
+    date: 'Fall 2025 – Present',
+  },
+  {
+    title: 'Agentic Resume Intelligence (ResuMind)',
+    description:
+      'Built an AI-powered resume optimization system in Python, Flask, and SQLite on Replit as an introduction to Agentic AI (A2A). Designed six parallel agents for parsing, tailoring, proofreading, and ATS scoring to create a privacy-first, upload-once platform for dynamic and personalized resume generation.',
+    technologies: ['Python', 'Flask', 'SQLite', 'AI Agents', 'NLP'],
+    status: 'Completed',
+    date: 'Fall 2025',
+  },
+];
+
+const academicProjects = [
+  {
+    title: 'Procedural and Spatial Syntax Analysis for Nursing Workflow and Hand Hygiene Compliance',
+    description:
+      'Conducting research at Emory University Hospital Midtown to identify procedural and spatial barriers to hand hygiene compliance through literature review, manager interviews, and data collection; developing an evidence-based design framework for improved compliance and preparing a publication-ready paper.',
+    technologies: ['Research Design', 'Data Collection', 'Healthcare Analytics'],
+    status: 'In Progress',
+    date: 'Fall 2025',
+  },
+  {
+    title: 'Simulating Cost-Effectiveness and Time to Recovery for Telehealth vs. In-Person Visits',
+    description:
+      'Designing a discrete-time simulation model in Python with a user-friendly interface to compare recovery time and cost across telehealth, in-person, and hybrid care models; manually coding transition probabilities and recovery functions informed by existing healthcare literature.',
+    technologies: ['Python', 'Simulation Modeling', 'Healthcare Analytics'],
+    status: 'In Progress',
+    date: 'Fall 2025',
+  },
+  {
+    title: 'Impacts of Social Determinants of Health on Bloodstream-Acquired MRSA Infections in California',
+    description:
+      'Integrating hospital-reported infection data with county-level socioeconomic variables to model and forecast MRSA infection rates using regression, time-series, and spatial deep learning techniques; uncovering social and structural factors driving infection disparities across California counties.',
+    technologies: ['Python', 'Deep Learning', 'Time Series', 'Spatial Analysis'],
+    status: 'In Progress',
+    date: 'Fall 2025',
+  },
+  {
+    title: 'ClusterCure: SDoH Analysis for Health Desert Identification and ER Visit Prediction',
+    description:
+      'Engineered a 200+ feature county-level dataset and used PCA and LASSO to identify key predictors of preventable ER visits. Clustered counties by SDoH profiles and trained SVM and Random Forest models to predict and prevent ER visits.',
+    technologies: ['Python', 'PCA', 'LASSO', 'SVM', 'Random Forest'],
+    status: 'Completed',
+    date: 'Spring 2025',
   },
   {
     title: 'State-Level Electricity Forecasting and Visualization Tool',
     description:
-      'Created Python scripts to extract, transform, and load 2.5M+ records from the Energy Information Administration (EIA) API into a GCP MySQL database. Developed predictive models using LSTM Neural Networks and XGBoost to forecast electricity demand and generation trends. Implemented PageRank to analyze systemic vulnerabilities in the grid. Created interactive visualizations in Tableau and Power BI to enable stakeholders to explore forecasted trends and identify grid risks.',
-    technologies: ['Python', 'LSTM', 'XGBoost', 'GCP', 'MySQL', 'Tableau', 'Power BI', 'PageRank'],
-    category: 'Data Engineering',
+      'Built a GCP MySQL pipeline to ingest 2.5M+ EIA API records. Developed LSTM and XGBoost models for forecasting electricity demand/generation, applied PageRank to identify grid vulnerabilities, and created interactive Tableau visualizations.',
+    technologies: ['Python', 'LSTM', 'XGBoost', 'GCP', 'MySQL', 'Tableau', 'PageRank'],
     status: 'Completed',
-    date: 'Dec 2024',
+    date: 'Fall 2025',
   },
   {
-    title: 'Humana-Mays Case Competition',
+    title: 'Humana-Mays Case Competition (50th out of 284 Teams)',
     description:
-      'Developed CatBoost model using dataset of 1.9M+ Medicare Advantage members, achieving adjusted AUC score of 0.75 to predict member engagement in preventative care visits. Extracted top 20 features to provide targeted recommendations for addressing member unengagement by leveraging Humana\'s existing architecture—increasing member health outcomes, Medicare Advantage plan ratings, and risk-adjustment payouts.',
-    technologies: ['Python', 'CatBoost', 'Healthcare Analytics', 'Predictive Modeling'],
-    category: 'Competition',
+      'Developed CatBoost model (AUC: 0.75) on 1.9M+ records to predict member engagement in preventive care; delivered actionable recommendations leveraging Humana\'s architecture to boost Medicare Advantage plan ratings and health outcomes.',
+    technologies: ['Python', 'CatBoost', 'Healthcare Analytics'],
     status: 'Completed',
-    ranking: '50th out of 284 Teams',
-    date: 'Sep 2024',
+    date: 'Fall 2025',
+  },
+  {
+    title: 'Genre Matters: Parametric and Nonparametric Analysis of Genre Popularity in Television Shows',
+    description:
+      'Analyzed over 1,000 TV shows using parametric and nonparametric statistical methods to compare episode rating distributions across genres, uncovering significant patterns in audience reception and genre popularity.',
+    technologies: ['Statistical Analysis', 'Python', 'Data Visualization'],
+    status: 'Completed',
+    date: 'Fall 2025',
+  },
+  {
+    title: 'Spotify Song Recommender',
+    description:
+      'Built a Python application using Spotify\'s API to analyze user listening trends and generate personalized song recommendations, improving engagement through similarity-based insights.',
+    technologies: ['Python', 'Spotify API', 'Recommendation Systems'],
+    status: 'Completed',
+    date: 'Spring 2025',
+  },
+  {
+    title: 'Housing Price Predictor',
+    description:
+      'Modeled housing prices for 900K+ listings using PCA, Linear Regression, Random Forest, and XGBoost in R, enhancing property valuation accuracy for buyers and agents.',
+    technologies: ['R', 'PCA', 'Random Forest', 'XGBoost'],
+    status: 'Completed',
+    date: 'Fall 2023',
+  },
+  {
+    title: 'Does Defense Win Championships?',
+    description:
+      'Conducted descriptive and regression analyses on NFL data to assess the impact of defensive performance on long-term team success.',
+    technologies: ['Statistical Analysis', 'Regression', 'Sports Analytics'],
+    status: 'Completed',
+    date: 'Fall 2023',
   },
 ];
 
@@ -52,60 +124,100 @@ export default function ProjectsSection() {
           </h2>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-6">
-          {projects.map((project, index) => (
-            <Card
-              key={index}
-              className="hover-elevate transition-all duration-300 flex flex-col border-l-4 border-l-primary/30"
-              data-testid={`card-project-${index}`}
-            >
-              <CardHeader className="space-y-3">
-                <div className="flex items-start justify-between gap-2">
-                  <CardTitle className="text-xl leading-tight" data-testid={`text-project-title-${index}`}>
+        {/* Personal Projects */}
+        <div className="mb-16">
+          <div className="flex items-center gap-2 mb-6">
+            <User className="h-6 w-6 text-primary" />
+            <h3 className="text-2xl font-semibold">Personal Projects</h3>
+          </div>
+          <div className="grid lg:grid-cols-2 gap-6">
+            {personalProjects.map((project, index) => (
+              <Card
+                key={index}
+                className="hover-elevate transition-all duration-300 flex flex-col border-l-4 border-l-primary/30"
+                data-testid={`card-personal-project-${index}`}
+              >
+                <CardHeader className="space-y-3">
+                  <CardTitle className="text-xl leading-tight" data-testid={`text-personal-title-${index}`}>
                     {project.title}
                   </CardTitle>
-                  <ExternalLink className="h-5 w-5 text-muted-foreground flex-shrink-0" />
-                </div>
-                <div className="flex flex-wrap gap-2 items-center">
-                  <Badge variant="outline" className="w-fit" data-testid={`badge-category-${index}`}>
-                    {project.category}
-                  </Badge>
-                  <Badge 
-                    variant={project.status === 'In Progress' ? 'default' : 'secondary'}
-                    className="w-fit"
-                  >
-                    {project.status}
-                  </Badge>
-                  {project.ranking && (
-                    <Badge variant="secondary" className="w-fit flex items-center gap-1">
-                      <Award className="h-3 w-3" />
-                      {project.ranking}
-                    </Badge>
-                  )}
-                </div>
-                {project.date && (
-                  <p className="text-xs text-muted-foreground">{project.date}</p>
-                )}
-              </CardHeader>
-              <CardContent className="flex-1 flex flex-col gap-4">
-                <p className="text-sm text-foreground/90 leading-relaxed" data-testid={`text-description-${index}`}>
-                  {project.description}
-                </p>
-                <div className="flex flex-wrap gap-2 mt-auto">
-                  {project.technologies.map((tech, i) => (
-                    <Badge
-                      key={i}
-                      variant="secondary"
-                      className="text-xs"
-                      data-testid={`badge-tech-${index}-${i}`}
+                  <div className="flex flex-wrap gap-2 items-center">
+                    <Badge 
+                      variant={project.status === 'In Progress' ? 'default' : 'secondary'}
+                      className="w-fit"
                     >
-                      {tech}
+                      {project.status}
                     </Badge>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          ))}
+                    <p className="text-xs text-muted-foreground">{project.date}</p>
+                  </div>
+                </CardHeader>
+                <CardContent className="flex-1 flex flex-col gap-4">
+                  <p className="text-sm text-foreground/90 leading-relaxed">
+                    {project.description}
+                  </p>
+                  <div className="flex flex-wrap gap-2 mt-auto">
+                    {project.technologies.map((tech, i) => (
+                      <Badge
+                        key={i}
+                        variant="secondary"
+                        className="text-xs"
+                      >
+                        {tech}
+                      </Badge>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+
+        {/* Academic Projects */}
+        <div>
+          <div className="flex items-center gap-2 mb-6">
+            <GraduationCap className="h-6 w-6 text-primary" />
+            <h3 className="text-2xl font-semibold">Academic Projects</h3>
+          </div>
+          <div className="grid lg:grid-cols-2 gap-6">
+            {academicProjects.map((project, index) => (
+              <Card
+                key={index}
+                className="hover-elevate transition-all duration-300 flex flex-col border-l-4 border-l-primary/30"
+                data-testid={`card-academic-project-${index}`}
+              >
+                <CardHeader className="space-y-3">
+                  <CardTitle className="text-xl leading-tight" data-testid={`text-academic-title-${index}`}>
+                    {project.title}
+                  </CardTitle>
+                  <div className="flex flex-wrap gap-2 items-center">
+                    <Badge 
+                      variant={project.status === 'In Progress' ? 'default' : 'secondary'}
+                      className="w-fit"
+                    >
+                      {project.status}
+                    </Badge>
+                    <p className="text-xs text-muted-foreground">{project.date}</p>
+                  </div>
+                </CardHeader>
+                <CardContent className="flex-1 flex flex-col gap-4">
+                  <p className="text-sm text-foreground/90 leading-relaxed">
+                    {project.description}
+                  </p>
+                  <div className="flex flex-wrap gap-2 mt-auto">
+                    {project.technologies.map((tech, i) => (
+                      <Badge
+                        key={i}
+                        variant="secondary"
+                        className="text-xs"
+                      >
+                        {tech}
+                      </Badge>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         </div>
       </div>
     </section>

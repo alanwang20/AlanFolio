@@ -8,6 +8,8 @@ const navItems = [
   { label: 'Experience', href: '#experience' },
   { label: 'Skills', href: '#skills' },
   { label: 'Projects', href: '#projects' },
+  { label: 'Leadership', href: '#leadership' },
+  { label: 'Academic', href: '#academic-experience' },
   { label: 'Contact', href: '#contact' },
 ];
 
