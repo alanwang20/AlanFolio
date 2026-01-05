@@ -7,12 +7,14 @@ import ProjectsSection from '@/components/ProjectsSection';
 import LeadershipSection from '@/components/LeadershipSection';
 import AcademicExperienceSection from '@/components/AcademicExperienceSection';
 import ContactSection from '@/components/ContactSection';
+import AnimatedBackground from '@/components/AnimatedBackground';
 
 export default function Home() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen relative">
+      <AnimatedBackground />
       <Navigation />
-      <main>
+      <main className="relative z-10">
         <HeroSection />
         <EducationSection />
         <ExperienceSection />
