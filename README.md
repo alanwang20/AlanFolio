@@ -104,13 +104,9 @@ The application will start on `http://0.0.0.0:5000` and automatically open in Re
 
 #### Projects
 **File:** `client/src/components/ProjectsSection.tsx`
-- **Personal Projects:** Edit `personalProjects` array (lines 10-25)
-- **Academic Projects:** Edit `academicProjects` array (lines 27-140)
-- **Adding Project Details:**
-  - For PDFs: Add `pdfPath: '/attached_assets/your-file.pdf'`
-  - For GitHub: Add `githubLink: 'https://github.com/username/repo'`
-  - For text files: Add `contentPath: '/attached_assets/your-file.txt'`
-- Upload files to `attached_assets/` folder
+- **Personal Projects:** Edit `personalProjects` array (lines 6-25)
+- **Academic Projects:** Edit `academicProjects` array (lines 27-115)
+- Each project has: title, description, technologies, status, date
 
 #### Leadership
 **File:** `client/src/components/LeadershipSection.tsx`
@@ -176,8 +172,7 @@ The application will start on `http://0.0.0.0:5000` and automatically open in Re
 | `EducationSection` | Academic credentials with GPAs |
 | `ExperienceSection` | Professional work history with badges |
 | `SkillsSection` | Technical skills organized by category + certifications |
-| `ProjectsSection` | Personal and academic projects with view buttons |
-| `ProjectModal` | Modal popup for displaying PDFs and project details |
+| `ProjectsSection` | Personal and academic projects showcase |
 | `LeadershipSection` | Leadership roles and advocacy work |
 | `AcademicExperienceSection` | Teaching and research positions |
 | `ContactSection` | Contact information with clickable links |
@@ -220,7 +215,7 @@ npm run preview      # Preview production build
 - ✅ Dark mode support
 - ✅ Smooth scroll animations
 - ✅ Interactive mouse-follow gradient background
-- ✅ Modal popups for project details (PDF viewer)
+- ✅ Project cards with technology badges
 - ✅ Fixed navigation with active section highlighting
 - ✅ Mobile-friendly hamburger menu
 - ✅ SEO optimized
