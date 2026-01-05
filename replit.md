@@ -22,7 +22,7 @@ Preferred communication style: Simple, everyday language.
 - shadcn/ui component library (New York style variant) with Radix UI primitives
 - Tailwind CSS for utility-first styling with custom design tokens
 - Component structure follows atomic design with reusable UI components in `client/src/components/ui/`
-- Custom sections (Hero, Education, Experience, Skills, Projects, Contact) as feature components
+- Custom sections (Hero, Education, Experience, Skills, Projects, Leadership, Academic Experience, Contact) as feature components
 
 **State Management & Data Fetching**
 - TanStack Query (React Query) for server state management and API caching

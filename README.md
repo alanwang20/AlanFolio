@@ -47,7 +47,6 @@ The application will start on `http://0.0.0.0:5000` and automatically open in Re
 │   │   │   ├── ExperienceSection.tsx     # Professional experience
 │   │   │   ├── SkillsSection.tsx         # Technical skills & certifications
 │   │   │   ├── ProjectsSection.tsx       # Personal & academic projects
-│   │   │   ├── ProjectModal.tsx          # Modal for viewing project details
 │   │   │   ├── LeadershipSection.tsx     # Leadership & advocacy
 │   │   │   ├── AcademicExperienceSection.tsx  # Academic roles
 │   │   │   ├── ContactSection.tsx        # Contact information
@@ -67,7 +66,7 @@ The application will start on `http://0.0.0.0:5000` and automatically open in Re
 │   ├── index.ts                     # Server entry point
 │   ├── routes.ts                    # API routes
 │   └── vite.ts                      # Vite dev server configuration
-├── attached_assets/                 # Static assets (PDFs, images, etc.)
+├── attached_assets/                 # Static assets (images, etc.)
 ├── shared/                          # Shared types and schemas
 ├── package.json                     # Dependencies and scripts
 ├── tsconfig.json                    # TypeScript configuration
@@ -240,10 +239,6 @@ npm run preview      # Preview production build
 ### Animations not working
 - Ensure `AnimatedBackground` is imported in `HeroSection`
 - Check browser console for errors
-
-### PDF not displaying in modal
-- Verify file path in `attached_assets` folder
-- Check that file path starts with `/attached_assets/`
 
 ### Scroll navigation not working
 - Ensure section `id` matches navigation `href` (without #)
