@@ -47,7 +47,7 @@ export default function HeroSection() {
               <p className="text-xl md:text-2xl text-muted-foreground font-medium">
                 Healthcare Analytics & Data Science
               </p>
-              <p className="text-base md:text-lg text-muted-foreground/80">
+              <p className="text-sm md:text-base text-muted-foreground/70">
                 MS Analytics @ Georgia Tech | Incoming Lead Analyst @ The Cigna Group
               </p>
             </div>
