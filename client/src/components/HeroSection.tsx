@@ -51,15 +51,10 @@ export default function HeroSection() {
 
             <div className="space-y-4 text-base md:text-lg text-foreground/90">
               <p>
-                Master's student at Georgia Tech (4.0 GPA) specializing in Computational Data Analytics,
-                with a proven track record of transforming healthcare operations through innovative
-                data engineering and machine learning solutions.
+                Data scientist passionate about solving challenges in healthcare and informatics, with experience in engineering KPIs, building predictive models, and automating large-scale data pipelines to support decision-making and value-based care. Incoming Lead Analyst (Analytics Leadership Development Program) at Cigna Group.
               </p>
               <p className="text-muted-foreground">
-                Incoming Lead Analyst (Analytics Leadership Development Program) at Cigna Group. Previously 
-                drove impactful insights at Cigna Group and Centene through engineering KPIs, building 
-                predictive models, and automating large-scale data pipelines to support decision-making 
-                and value-based care.
+                Recently completed M.S. in Computational Data Analytics at Georgia Tech to integrate technical foundations in machine learning, optimization, and simulation with healthcare strategy and systems design. Projects included procedural and spatial syntax analysis to optimize hand dispenser placement at Emory University Hospital Midtown, simulating telehealth recovery outcomes to optimize hypertension treatment, and analyzing epidemiological impact of social determinants of health on statewide MRSA bloodstream infections.
               </p>
             </div>
 
