@@ -44,11 +44,8 @@ export default function HeroSection() {
                   Alan Wang
                 </span>
               </h1>
-              <p className="text-xl md:text-2xl text-muted-foreground font-medium">
-                Healthcare Analytics & Data Science
-              </p>
-              <p className="text-sm md:text-base text-muted-foreground/70">
-                MS Analytics @ Georgia Tech | Incoming Lead Analyst @ The Cigna Group
+              <p className="text-sm md:text-base text-muted-foreground font-medium whitespace-nowrap">
+                Healthcare Analytics & Data Science | MS Analytics @ Georgia Tech | Incoming Lead Analyst @ The Cigna Group
               </p>
             </div>
 
