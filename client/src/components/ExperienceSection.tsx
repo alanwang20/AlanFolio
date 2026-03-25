@@ -137,15 +137,24 @@ export default function ExperienceSection() {
             </div>
           </div>
 
-          <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-            <span className="text-sm font-medium text-primary" data-testid={`text-company-${index}`}>
-              {exp.company}
-            </span>
-            {exp.department && (
-              <span className="text-xs text-muted-foreground">{exp.department}</span>
-            )}
-            {exp.type && (
-              <span className="text-xs text-muted-foreground">{exp.type}</span>
+          <div className="flex items-baseline justify-between gap-3">
+            <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+              <span className="text-sm font-medium text-primary" data-testid={`text-company-${index}`}>
+                {exp.company}
+              </span>
+              {exp.department && (
+                <span className="text-xs text-muted-foreground">{exp.department}</span>
+              )}
+              {exp.type && (
+                <span className="text-xs text-muted-foreground">{exp.type}</span>
+              )}
+            </div>
+            {hasDetails && (
+              <ChevronDown
+                className={`h-4 w-4 text-muted-foreground shrink-0 transition-transform duration-300 ${
+                  isExpanded ? 'rotate-180' : ''
+                }`}
+              />
             )}
           </div>
 
@@ -183,15 +192,6 @@ export default function ExperienceSection() {
             </div>
           )}
 
-          {hasDetails && (
-            <div className="flex justify-end mt-2">
-              <ChevronDown
-                className={`h-4 w-4 text-muted-foreground transition-transform duration-300 ${
-                  isExpanded ? 'rotate-180' : ''
-                }`}
-              />
-            </div>
-          )}
         </CardContent>
       </Card>
     );
