@@ -54,12 +54,8 @@ export default function AnimatedBackground() {
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
 
-    const handleMouseMove = (e: MouseEvent) => {
-      // Use clientX/Y — viewport coordinates, no scrollY adjustment
-      const nx = e.clientX;
-      const ny = e.clientY;
+    const updateCursor = (nx: number, ny: number) => {
       targetPos.current = { x: nx, y: ny };
-
       const dx = nx - lastRipplePos.current.x;
       const dy = ny - lastRipplePos.current.y;
       if (Math.sqrt(dx * dx + dy * dy) > 50 && ripples.current.length < 5) {
@@ -68,7 +64,23 @@ export default function AnimatedBackground() {
       }
     };
 
+    const handleMouseMove = (e: MouseEvent) => updateCursor(e.clientX, e.clientY);
+
+    const handleTouchMove = (e: TouchEvent) => {
+      if (e.touches.length > 0) {
+        updateCursor(e.touches[0].clientX, e.touches[0].clientY);
+      }
+    };
+
+    const handleTouchStart = (e: TouchEvent) => {
+      if (e.touches.length > 0) {
+        updateCursor(e.touches[0].clientX, e.touches[0].clientY);
+      }
+    };
+
     window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('touchmove', handleTouchMove, { passive: true });
+    window.addEventListener('touchstart', handleTouchStart, { passive: true });
 
     // Particles live in viewport space and wrap at canvas boundaries
     const particles: Particle[] = [];
@@ -265,6 +277,8 @@ export default function AnimatedBackground() {
       cancelAnimationFrame(frameRef.current);
       window.removeEventListener('resize', resizeCanvas);
       window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('touchmove', handleTouchMove);
+      window.removeEventListener('touchstart', handleTouchStart);
       resizeObserver.disconnect();
     };
   }, []);
@@ -273,7 +287,7 @@ export default function AnimatedBackground() {
     <canvas
       ref={canvasRef}
       className="fixed inset-0 pointer-events-none z-0"
-      style={{ opacity: 0.88 }}
+      style={{ opacity: 0.88, willChange: 'transform', WebkitTransform: 'translateZ(0)', transform: 'translateZ(0)' }}
     />
   );
 }
