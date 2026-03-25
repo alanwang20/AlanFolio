@@ -132,7 +132,7 @@ export default function ExperienceSection() {
                   </Badge>
                 )}
               </div>
-              <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+              <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
                 <span className="text-sm font-medium text-primary" data-testid={`text-company-${index}`}>
                   {exp.company}
                 </span>
