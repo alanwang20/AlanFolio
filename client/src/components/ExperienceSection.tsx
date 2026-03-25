@@ -114,7 +114,7 @@ export default function ExperienceSection() {
         data-testid={`card-experience-${index}`}
       >
         <CardContent className="p-5">
-          <div className="flex items-stretch justify-between gap-4">
+          <div className="flex flex-col sm:flex-row sm:items-stretch justify-between gap-2 sm:gap-4">
             <div className="flex flex-col gap-1 flex-1 min-w-0">
               <div className="flex flex-wrap items-center gap-2">
                 <h3 className="text-base font-semibold text-foreground" data-testid={`text-title-${index}`}>
@@ -145,17 +145,19 @@ export default function ExperienceSection() {
               </div>
             </div>
 
-            <div className="flex items-center gap-2 shrink-0">
+            <div className="flex items-center gap-2 shrink-0 sm:self-center">
               <div className="flex items-center gap-1 text-muted-foreground">
                 <Calendar className="h-4 w-4" />
                 <span className="text-sm" data-testid={`text-period-${index}`}>{exp.period}</span>
               </div>
               {hasDetails && (
-                <ChevronDown
-                  className={`h-4 w-4 text-muted-foreground transition-transform duration-300 ${
-                    isExpanded ? 'rotate-180' : ''
-                  }`}
-                />
+                <div className="bg-primary/10 rounded-md p-1">
+                  <ChevronDown
+                    className={`h-4 w-4 text-primary transition-transform duration-300 ${
+                      isExpanded ? 'rotate-180' : ''
+                    }`}
+                  />
+                </div>
               )}
             </div>
           </div>
