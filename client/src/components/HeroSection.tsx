@@ -53,10 +53,10 @@ export default function HeroSection() {
 
             <div className="space-y-4 text-base md:text-lg text-foreground/90">
               <p>
-                Data scientist passionate about solving challenges in healthcare and informatics, with experience in engineering KPIs, building predictive models, and automating large-scale data pipelines to support decision-making and value-based care. Incoming Lead Analyst (Analytics Leadership Development Program) at Cigna Group.
+                Passionate about solving problems in healthcare informatics, with hands-on experience building end-to-end data products including predictive models, pipelines, and decision-support systems. Incoming ALDP Lead Analyst at The Cigna Group.
               </p>
               <p className="text-muted-foreground">
-                Recently completed M.S. in Computational Data Analytics at Georgia Tech to integrate technical foundations in machine learning, optimization, and simulation with healthcare strategy and systems design. Projects included procedural and spatial syntax analysis to optimize hand dispenser placement at Emory University Hospital Midtown, simulating telehealth recovery outcomes to optimize hypertension treatment, and analyzing epidemiological impact of social determinants of health on statewide MRSA bloodstream infections.
+                Completed an M.S. in Computational Data Analytics at Georgia Institute of Technology with a focus in machine learning, and simulation and healthcare analytics; currently building across healthcare research, data products, and AI-assisted development.
               </p>
             </div>
 
