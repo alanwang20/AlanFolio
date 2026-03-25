@@ -113,23 +113,23 @@ export default function AnimatedBackground() {
           const glow = Math.max(0, 1 - distToMouse / 180);
           ctx.beginPath();
           ctx.arc(gx, gy, 1.2 + glow * 1.4, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(0, 210, 220, ${0.055 + glow * 0.22})`;
+          ctx.fillStyle = `rgba(28, 148, 158, ${0.055 + glow * 0.22})`;
           ctx.fill();
         }
       }
 
       // ── 2. Cursor glow ───────────────────────────────────────────────────
       const outerGlow = ctx.createRadialGradient(mx, my, 0, mx, my, 480);
-      outerGlow.addColorStop(0, 'rgba(0, 200, 220, 0.18)');
-      outerGlow.addColorStop(0.35, 'rgba(0, 180, 210, 0.07)');
-      outerGlow.addColorStop(1, 'rgba(0, 200, 220, 0)');
+      outerGlow.addColorStop(0, 'rgba(24, 138, 150, 0.18)');
+      outerGlow.addColorStop(0.35, 'rgba(20, 128, 140, 0.07)');
+      outerGlow.addColorStop(1, 'rgba(24, 138, 150, 0)');
       ctx.fillStyle = outerGlow;
       ctx.fillRect(0, 0, w, h);
 
       const innerGlow = ctx.createRadialGradient(mx, my, 0, mx, my, 110);
-      innerGlow.addColorStop(0, 'rgba(0, 240, 255, 0.38)');
-      innerGlow.addColorStop(0.5, 'rgba(0, 210, 230, 0.14)');
-      innerGlow.addColorStop(1, 'rgba(0, 210, 230, 0)');
+      innerGlow.addColorStop(0, 'rgba(28, 158, 168, 0.38)');
+      innerGlow.addColorStop(0.5, 'rgba(24, 142, 152, 0.14)');
+      innerGlow.addColorStop(1, 'rgba(24, 142, 152, 0)');
       ctx.fillStyle = innerGlow;
       ctx.fillRect(0, 0, w, h);
 
@@ -140,13 +140,13 @@ export default function AnimatedBackground() {
         ripple.alpha *= 0.92;
         ctx.beginPath();
         ctx.arc(ripple.x, ripple.y, ripple.radius, 0, Math.PI * 2);
-        ctx.strokeStyle = `rgba(0, 230, 245, ${ripple.alpha})`;
+        ctx.strokeStyle = `rgba(26, 152, 162, ${ripple.alpha})`;
         ctx.lineWidth = 1.5;
         ctx.stroke();
         if (ripple.radius > 25) {
           ctx.beginPath();
           ctx.arc(ripple.x, ripple.y, ripple.radius * 0.55, 0, Math.PI * 2);
-          ctx.strokeStyle = `rgba(0, 200, 220, ${ripple.alpha * 0.45})`;
+          ctx.strokeStyle = `rgba(24, 138, 150, ${ripple.alpha * 0.45})`;
           ctx.lineWidth = 0.8;
           ctx.stroke();
         }
@@ -168,7 +168,7 @@ export default function AnimatedBackground() {
           if (x === 0) ctx.moveTo(x, ecgY - amp);
           else ctx.lineTo(x, ecgY - amp);
         }
-        ctx.strokeStyle = `rgba(0, 235, 200, ${baseAlpha})`;
+        ctx.strokeStyle = `rgba(24, 150, 138, ${baseAlpha})`;
         ctx.lineWidth = 1;
         ctx.stroke();
 
@@ -182,7 +182,7 @@ export default function AnimatedBackground() {
             if (x === 0) ctx.moveTo(x, ecgY - amp);
             else ctx.lineTo(x, ecgY - amp);
           }
-          ctx.strokeStyle = `rgba(0, 255, 200, ${nearGlow * 0.4})`;
+          ctx.strokeStyle = `rgba(30, 162, 148, ${nearGlow * 0.4})`;
           ctx.lineWidth = 2;
           ctx.stroke();
         }
@@ -219,13 +219,13 @@ export default function AnimatedBackground() {
         if (glow > 0.15) {
           ctx.beginPath();
           ctx.arc(p.x, p.y, drawSize + 5, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(0, 210, 225, ${glow * 0.14})`;
+          ctx.fillStyle = `rgba(26, 145, 155, ${glow * 0.14})`;
           ctx.fill();
         }
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, drawSize, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(0, 210, 225, ${0.30 + glow * 0.55})`;
+        ctx.fillStyle = `rgba(26, 145, 155, ${0.30 + glow * 0.55})`;
         ctx.fill();
       }
 
@@ -248,7 +248,7 @@ export default function AnimatedBackground() {
             ctx.beginPath();
             ctx.moveTo(p1.x, p1.y);
             ctx.lineTo(p2.x, p2.y);
-            ctx.strokeStyle = `rgba(0, 200, 220, ${lineAlpha})`;
+            ctx.strokeStyle = `rgba(24, 138, 150, ${lineAlpha})`;
             ctx.lineWidth = 0.5 + lineGlow * 0.9;
             ctx.stroke();
           }
