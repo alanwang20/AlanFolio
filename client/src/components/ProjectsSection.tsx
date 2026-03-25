@@ -9,7 +9,7 @@ const personalProjects = [
     title: 'Healthcare Analytics Proof-of-Concept Portfolio',
     description:
       'A collection of fast-paced, proof-of-concept projects demonstrating the full analytics lifecycle—from data engineering and pipeline design to machine learning and insight generation—focused on solving practical healthcare problems.',
-    technologies: ['Python', 'SQL', 'Spark', 'Databricks', 'Git', 'Data Engineering', 'Machine Learning', 'Healthcare Analytics'],
+    technologies: ['Spark', 'Databricks', 'Data Engineering', 'Machine Learning', 'Healthcare Analytics'],
     status: 'In Progress',
     date: 'Present',
   },
@@ -76,7 +76,7 @@ const academicProjects = [
     title: 'State-Level Electricity Forecasting and Visualization Tool',
     description:
       'Built a GCP MySQL pipeline to ingest 2.5M+ EIA API records. Developed LSTM and XGBoost models for forecasting electricity demand/generation, applied PageRank to identify grid vulnerabilities, and created interactive Tableau visualizations.',
-    technologies: ['Python', 'LSTM', 'XGBoost', 'GCP', 'MySQL', 'Tableau', 'PageRank'],
+    technologies: ['Python', 'LSTM', 'XGBoost', 'GCP', 'MySQL', 'PageRank'],
     status: 'Completed',
     date: 'Fall 2025',
   },
