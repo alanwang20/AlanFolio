@@ -18,10 +18,10 @@ export default function Home() {
         <HeroSection />
         <EducationSection />
         <ExperienceSection />
-        <SkillsSection />
         <ProjectsSection />
-        <LeadershipSection />
         <AcademicExperienceSection />
+        <LeadershipSection />
+        <SkillsSection />
         <ContactSection />
       </main>
     </div>
