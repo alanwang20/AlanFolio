@@ -148,7 +148,7 @@ export default function ExperienceSection() {
             <div className="flex flex-col items-end justify-between shrink-0">
               <div className="flex items-center gap-1 text-muted-foreground">
                 <Calendar className="h-4 w-4" />
-                <span className="text-base" data-testid={`text-period-${index}`}>{exp.period}</span>
+                <span className="text-sm" data-testid={`text-period-${index}`}>{exp.period}</span>
               </div>
               {hasDetails && (
                 <ChevronDown
