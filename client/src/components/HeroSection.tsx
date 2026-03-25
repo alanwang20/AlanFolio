@@ -56,7 +56,7 @@ export default function HeroSection() {
                 Data Scientist passionate about applying machine learning, analytics engineering, and information systems to solve problems in healthcare informatics. Incoming ALDP Lead Analyst at The Cigna Group.
               </p>
               <p className="text-muted-foreground">
-                Holds a M.S. in Computational Data Analytics from the Georgia Institute of Technology, with industry and academic experience in building predictive models, engineering end-to-end analytics products, and Research and Development.
+                Holds an M.S. in Computational Data Analytics from the Georgia Institute of Technology, with industry and academic experience in building predictive models, developing end-to-end analytics products, and driving research and development.
               </p>
             </div>
 
