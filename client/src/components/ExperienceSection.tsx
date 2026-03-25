@@ -97,7 +97,7 @@ export default function ExperienceSection() {
     <section
       id="experience"
       ref={ref}
-      className={`relative py-24 px-6 transition-all duration-1000 ${
+      className={`relative py-14 px-6 transition-all duration-1000 ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
       }`}
     >
