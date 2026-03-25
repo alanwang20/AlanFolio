@@ -40,9 +40,15 @@ export default function AnimatedBackground() {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
+    let currentW = 0, currentH = 0;
     const resize = () => {
-      canvas.width  = window.innerWidth;
-      canvas.height = window.innerHeight;
+      const w = window.innerWidth;
+      const h = window.innerHeight;
+      if (w !== currentW || h !== currentH) {
+        currentW = w; currentH = h;
+        canvas.width  = w;
+        canvas.height = h;
+      }
     };
     resize();
     window.addEventListener('resize', resize);
@@ -243,9 +249,6 @@ export default function AnimatedBackground() {
     };
     document.addEventListener('visibilitychange', onVisible);
 
-    const ro = new ResizeObserver(resize);
-    ro.observe(document.documentElement);
-
     return () => {
       cancelAnimationFrame(rafId.current);
       clearInterval(keepAlive);
@@ -254,7 +257,6 @@ export default function AnimatedBackground() {
       window.removeEventListener('mousemove',  onMouse);
       window.removeEventListener('touchmove',  onTouchM);
       window.removeEventListener('touchstart', onTouchS);
-      ro.disconnect();
     };
   }, []);
 
