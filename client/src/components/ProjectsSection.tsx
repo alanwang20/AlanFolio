@@ -13,20 +13,20 @@ const personalProjects = [
     date: 'Present',
   },
   {
-    title: 'Agentic Website Development (This site!)',
-    description:
-      'Developing a personal branding website on Replit, built with React, TypeScript, and Tailwind CSS, designed to dynamically showcase résumé content, projects, and experiences through a modern, responsive interface.',
-    technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Replit'],
-    status: 'In Progress',
-    date: 'Fall 2025 – Present',
-  },
-  {
     title: 'PinTrader AI',
     description:
       'Developing an end-to-end AI trading assistant for collectible pins, combining eBay API integrations with LLM-driven image-to-text generation. Leveraging Claude code to develop a platform enabling automated market analysis, intelligent pricing recommendations, inventory management, and rapid listing creation—reducing friction in the resale workflow.',
     technologies: ['Python', 'eBay API', 'LLM', 'Claude', 'Image Recognition'],
     status: 'In Progress',
     date: 'Present',
+  },
+  {
+    title: 'Agentic Website Development (This site!)',
+    description:
+      'Developing a personal branding website on Replit, built with React, TypeScript, and Tailwind CSS, designed to dynamically showcase résumé content, projects, and experiences through a modern, responsive interface.',
+    technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Replit'],
+    status: 'In Progress',
+    date: 'Fall 2025 – Present',
   },
   {
     title: 'Agentic Resume Intelligence (ResuMind)',
