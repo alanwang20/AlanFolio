@@ -201,19 +201,19 @@ export default function ProjectsSection() {
     <section
       id="projects"
       ref={ref}
-      className={`relative py-14 px-6 bg-muted/20 transition-all duration-1000 ${
+      className={`relative py-8 px-6 bg-muted/20 transition-all duration-1000 ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
       }`}
     >
       <div className="max-w-6xl mx-auto">
-        <div className="flex items-center gap-3 mb-10">
+        <div className="flex items-center gap-3 mb-5">
           <Folder className="h-8 w-8 text-primary" />
           <h2 className="text-3xl md:text-4xl font-bold" data-testid="text-projects-title">
             Projects
           </h2>
         </div>
 
-        <div className="mb-10">
+        <div className="mb-5">
           <div className="flex items-center gap-2 mb-4">
             <User className="h-5 w-5 text-primary" />
             <h3 className="text-xl font-semibold">Personal Projects</h3>
