@@ -119,7 +119,7 @@ export default function ProjectsSection() {
       <div className="max-w-6xl mx-auto">
         <div className="flex items-center gap-3 mb-12">
           <Folder className="h-8 w-8 text-primary" />
-          <h2 className="text-4xl font-bold" data-testid="text-projects-title">
+          <h2 className="text-3xl md:text-4xl font-bold" data-testid="text-projects-title">
             Projects
           </h2>
         </div>
@@ -133,7 +133,7 @@ export default function ProjectsSection() {
             {personalProjects.map((project, index) => (
               <Card
                 key={index}
-                className="hover-elevate transition-all duration-300 flex flex-col border-l-4 border-l-primary/30"
+                className="hover-elevate transition-all duration-300 flex flex-col"
                 data-testid={`card-personal-project-${index}`}
               >
                 <CardHeader className="space-y-3">
@@ -180,7 +180,7 @@ export default function ProjectsSection() {
             {academicProjects.map((project, index) => (
               <Card
                 key={index}
-                className="hover-elevate transition-all duration-300 flex flex-col border-l-4 border-l-primary/30"
+                className="hover-elevate transition-all duration-300 flex flex-col"
                 data-testid={`card-academic-project-${index}`}
               >
                 <CardHeader className="space-y-3">

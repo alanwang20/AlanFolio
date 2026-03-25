@@ -50,7 +50,7 @@ export default function SkillsSection() {
       <div className="max-w-6xl mx-auto">
         <div className="flex items-center gap-3 mb-12">
           <Code2 className="h-8 w-8 text-primary" />
-          <h2 className="text-4xl font-bold" data-testid="text-skills-title">
+          <h2 className="text-3xl md:text-4xl font-bold" data-testid="text-skills-title">
             Technical Skills
           </h2>
         </div>

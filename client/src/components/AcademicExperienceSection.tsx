@@ -65,7 +65,7 @@ export default function AcademicExperienceSection() {
       <div className="max-w-6xl mx-auto">
         <div className="flex items-center gap-3 mb-12">
           <BookOpen className="h-8 w-8 text-primary" />
-          <h2 className="text-4xl font-bold" data-testid="text-academic-experience-title">
+          <h2 className="text-3xl md:text-4xl font-bold" data-testid="text-academic-experience-title">
             Academic Experience
           </h2>
         </div>
@@ -74,7 +74,7 @@ export default function AcademicExperienceSection() {
           {academicExperiences.map((inst, instIndex) => (
             <Card
               key={instIndex}
-              className="hover-elevate transition-all duration-300 border-l-4 border-l-primary/30"
+              className="hover-elevate transition-all duration-300"
               data-testid={`card-institution-${instIndex}`}
             >
               <CardContent className="p-8">

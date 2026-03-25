@@ -39,15 +39,15 @@ export default function HeroSection() {
           <div className="order-2 md:order-1 space-y-6">
             <div className="space-y-2">
               <p className="text-sm font-medium text-primary tracking-wider uppercase">Welcome to my portfolio</p>
-              <h1 className="text-5xl md:text-6xl font-bold tracking-tight">
+              <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
                 <span className="bg-gradient-to-r from-primary via-primary to-primary/70 bg-clip-text text-transparent">
                   Alan Wang
                 </span>
               </h1>
-              <p className="text-xl md:text-2xl text-muted-foreground font-medium">
+              <p className="text-lg md:text-2xl text-muted-foreground font-medium">
                 Healthcare Analytics & Data Science
               </p>
-              <p className="text-xs md:text-sm text-muted-foreground/70 whitespace-nowrap">
+              <p className="text-xs md:text-sm text-muted-foreground/70">
                 MS Analytics @ Georgia Tech | Incoming Lead Analyst @ The Cigna Group
               </p>
             </div>

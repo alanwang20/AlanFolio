@@ -72,7 +72,7 @@ export default function LeadershipSection() {
       <div className="max-w-6xl mx-auto">
         <div className="flex items-center gap-3 mb-12">
           <Users className="h-8 w-8 text-primary" />
-          <h2 className="text-4xl font-bold" data-testid="text-leadership-title">
+          <h2 className="text-3xl md:text-4xl font-bold" data-testid="text-leadership-title">
             Leadership & Asian Advocacy
           </h2>
         </div>
@@ -81,7 +81,7 @@ export default function LeadershipSection() {
           {leadership.map((org, orgIndex) => (
             <Card
               key={orgIndex}
-              className="hover-elevate transition-all duration-300 border-l-4 border-l-primary/30"
+              className="hover-elevate transition-all duration-300"
               data-testid={`card-organization-${orgIndex}`}
             >
               <CardContent className="p-8">

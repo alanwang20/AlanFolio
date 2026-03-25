@@ -98,7 +98,7 @@ export default function ExperienceSection() {
       <div className="max-w-6xl mx-auto">
         <div className="flex items-center gap-3 mb-12">
           <Briefcase className="h-8 w-8 text-primary" />
-          <h2 className="text-4xl font-bold" data-testid="text-experience-title">
+          <h2 className="text-3xl md:text-4xl font-bold" data-testid="text-experience-title">
             Professional Experience
           </h2>
         </div>
@@ -108,7 +108,7 @@ export default function ExperienceSection() {
             <Card
               key={index}
               className={`hover-elevate transition-all duration-300 ${
-                exp.isUpcoming ? 'border-2 border-primary/40' : ''
+                exp.isUpcoming ? 'ring-2 ring-primary/40' : ''
               }`}
               data-testid={`card-experience-${index}`}
             >
@@ -117,7 +117,7 @@ export default function ExperienceSection() {
                   <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
                     <div className="space-y-2">
                       <div className="flex items-center gap-3 flex-wrap">
-                        <h3 className="text-2xl font-semibold text-foreground" data-testid={`text-title-${index}`}>
+                        <h3 className="text-xl md:text-2xl font-semibold text-foreground" data-testid={`text-title-${index}`}>
                           {exp.title}
                         </h3>
                         {exp.isUpcoming && (

@@ -36,7 +36,7 @@ export default function EducationSection() {
       <div className="max-w-6xl mx-auto">
         <div className="flex items-center gap-3 mb-12">
           <GraduationCap className="h-8 w-8 text-primary" />
-          <h2 className="text-4xl font-bold" data-testid="text-education-title">
+          <h2 className="text-3xl md:text-4xl font-bold" data-testid="text-education-title">
             Education
           </h2>
         </div>
@@ -45,7 +45,7 @@ export default function EducationSection() {
           {education.map((edu, index) => (
             <Card
               key={index}
-              className="hover-elevate transition-all duration-300 border-l-4 border-l-primary/30"
+              className="hover-elevate transition-all duration-300"
               data-testid={`card-education-${index}`}
             >
               <CardContent className="p-8">
