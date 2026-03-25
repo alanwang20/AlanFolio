@@ -9,17 +9,15 @@ const experiences = [
     title: 'Lead Analyst',
     company: 'Cigna Group',
     period: 'July 2025',
-    location: 'Incoming',
     type: 'Analytics Leadership Development Program',
     description: [],
     skills: [],
     isUpcoming: true,
   },
   {
-    title: 'Data Science',
+    title: 'Data Scientist',
     company: 'Cigna Group',
     period: 'May 2025 – Aug 2025',
-    location: 'Remote',
     type: 'Intern · Analytics Leadership Development Program',
     description: [
       'Conducted feature testing experiments on in-production account-level renewal risk models in Databricks, engineering 7,500+ clinical features from member-level data for account-level feature testing',
@@ -29,11 +27,10 @@ const experiences = [
     skills: ['Databricks', 'Python', 'Feature Engineering', 'Predictive Modeling', 'Healthcare Analytics'],
   },
   {
-    title: 'Data Engineering',
+    title: 'Data Engineer',
     company: 'Centene Corporation',
     department: 'Call Center Engineering',
     period: 'May 2024 – Aug 2024',
-    location: 'Remote',
     type: 'Intern',
     description: [
       'Led 4 projects utilizing Python/SQL to explore bot routing, agent staffing, authentication failure, and caller dropout. Analyzed data from Snowflake, engineered 10+ KPIs, clustered 50+ bots, and built business-oriented and data-driven visualizations',
@@ -42,11 +39,10 @@ const experiences = [
     skills: ['Python', 'SQL', 'Snowflake', 'Data Visualization', 'Call Center Analytics'],
   },
   {
-    title: 'Data Engineering / Technical Product Owner',
+    title: 'Data Engineer / Technical Product Owner',
     company: 'Centene Corporation',
     department: 'Product Support Analytics',
     period: 'May 2023 – Aug 2023',
-    location: 'Remote',
     type: 'Intern',
     description: [
       'Partnered with Recovery Platform teams to identify 7 critical KPIs for recovery claims performance, deployed live dashboard to production',
@@ -58,7 +54,6 @@ const experiences = [
     title: 'Technical Product Owner / Manager',
     company: 'Centene Corporation',
     period: 'May 2022 – Dec 2022',
-    location: 'Remote',
     type: 'Intern',
     description: [
       'Automated onboarding process via Python (Selenium), cutting entitlement processing time by 55% and onboarding time from 2 months to 30 minutes (projected $170M savings)',
@@ -67,10 +62,9 @@ const experiences = [
     skills: ['Python', 'Selenium', 'Process Automation', 'Product Management'],
   },
   {
-    title: 'Information Systems / Technology',
+    title: 'Information Systems / Technology Consultant',
     company: 'Global Connect Group',
     period: 'Jan 2022 – Jan 2023',
-    location: 'Remote',
     type: 'Intern',
     description: [
       'Supported the group\'s platform-as-a-service model by troubleshooting SQL-hosted variable errors and integrating multiple business models across diverse sectors',
@@ -82,7 +76,6 @@ const experiences = [
     title: 'Account Executive',
     company: 'Flex ATL',
     period: 'May 2021 – Jun 2021',
-    location: 'Atlanta, GA',
     type: 'Intern',
     description: [
       'Fundraised for the International Fund for Animal Welfare through direct marketing, developing strong skills in public speaking, customer engagement, and product promotion',
@@ -140,7 +133,6 @@ export default function ExperienceSection() {
                 {exp.department && (
                   <span className="text-xs text-muted-foreground">{exp.department}</span>
                 )}
-                <span className="text-xs text-muted-foreground">{exp.location}</span>
                 {exp.type && (
                   <span className="text-xs text-muted-foreground">{exp.type}</span>
                 )}
