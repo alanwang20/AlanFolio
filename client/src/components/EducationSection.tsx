@@ -1,5 +1,5 @@
 import { GraduationCap, Calendar, Award } from 'lucide-react';
-import { Card, CardContent } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
@@ -41,43 +41,41 @@ export default function EducationSection() {
           </h2>
         </div>
 
-        <div className="grid gap-6">
+        <div className="grid lg:grid-cols-2 gap-6">
           {education.map((edu, index) => (
             <Card
               key={index}
-              className="hover-elevate transition-all duration-300"
+              className="hover-elevate transition-all duration-300 flex flex-col"
               data-testid={`card-education-${index}`}
             >
-              <CardContent className="p-8">
-                <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
-                  <div className="flex-1 space-y-3">
-                    <h3 className="text-2xl font-semibold text-foreground" data-testid={`text-school-${index}`}>
-                      {edu.school}
-                    </h3>
-                    <p className="text-lg font-medium text-primary" data-testid={`text-degree-${index}`}>
-                      {edu.degree}
-                    </p>
-                    <p className="text-base text-foreground/80" data-testid={`text-track-${index}`}>
-                      {edu.track}
-                    </p>
-                    <p className="text-sm text-muted-foreground">{edu.location}</p>
+              <CardHeader className="space-y-2">
+                <CardTitle className="text-lg leading-tight" data-testid={`text-school-${index}`}>
+                  {edu.school}
+                </CardTitle>
+                <div className="flex flex-wrap gap-2 items-center">
+                  <Badge variant="default" className="w-fit text-xs">
+                    {edu.degree}
+                  </Badge>
+                </div>
+              </CardHeader>
+              <CardContent className="flex-1 flex flex-col gap-3">
+                <p className="text-sm text-foreground/80" data-testid={`text-track-${index}`}>
+                  {edu.track}
+                </p>
+                <div className="flex flex-wrap gap-3 mt-auto">
+                  <div className="flex items-center gap-1 text-muted-foreground">
+                    <Calendar className="h-3 w-3" />
+                    <span className="text-xs" data-testid={`text-period-${index}`}>{edu.period}</span>
                   </div>
-                  <div className="flex flex-col gap-3 lg:items-end">
-                    <div className="flex items-center gap-2 text-muted-foreground">
-                      <Calendar className="h-4 w-4" />
-                      <span className="text-sm font-medium" data-testid={`text-period-${index}`}>
-                        {edu.period}
-                      </span>
-                    </div>
-                    <Badge 
-                      variant="secondary" 
-                      className="w-fit flex items-center gap-2"
-                      data-testid={`badge-gpa-${index}`}
-                    >
-                      <Award className="h-3 w-3" />
-                      GPA: {edu.gpa}
-                    </Badge>
-                  </div>
+                  <span className="text-xs text-muted-foreground">{edu.location}</span>
+                  <Badge
+                    variant="secondary"
+                    className="text-xs flex items-center gap-1"
+                    data-testid={`badge-gpa-${index}`}
+                  >
+                    <Award className="h-3 w-3" />
+                    GPA: {edu.gpa}
+                  </Badge>
                 </div>
               </CardContent>
             </Card>
