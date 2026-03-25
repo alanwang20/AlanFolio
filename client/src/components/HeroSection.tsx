@@ -6,7 +6,7 @@ export default function HeroSection() {
   return (
     <section
       id="about"
-      className="relative min-h-screen flex items-center justify-center px-6 py-24 overflow-hidden"
+      className="relative flex items-center justify-center px-6 py-10 overflow-hidden"
     >
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-pulse" />
@@ -35,15 +35,15 @@ export default function HeroSection() {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/8 via-transparent to-transparent pointer-events-none z-0" />
 
       <div className="max-w-6xl w-full relative z-10">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="order-2 md:order-1 space-y-6">
-            <div className="space-y-2">
-              <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
+        <div className="grid md:grid-cols-2 gap-8 items-center">
+          <div className="order-2 md:order-1 space-y-3">
+            <div className="space-y-1">
+              <h1 className="text-3xl md:text-5xl font-bold tracking-tight">
                 <span className="bg-gradient-to-r from-primary via-primary to-primary/70 bg-clip-text text-transparent">
                   Alan Wang
                 </span>
               </h1>
-              <p className="text-lg md:text-2xl text-muted-foreground font-medium">
+              <p className="text-base md:text-xl text-muted-foreground font-medium">
                 Healthcare Data Scientist
               </p>
               <p className="text-xs md:text-sm text-muted-foreground/70">
@@ -51,7 +51,7 @@ export default function HeroSection() {
               </p>
             </div>
 
-            <div className="space-y-4 text-base md:text-lg text-foreground/90">
+            <div className="space-y-2 text-sm md:text-base text-foreground/90">
               <p>
                 Data Scientist passionate about applying machine learning, analytics engineering, and information systems to solve problems in healthcare informatics. Incoming ALDP Lead Analyst at The Cigna Group.
               </p>
@@ -60,10 +60,9 @@ export default function HeroSection() {
               </p>
             </div>
 
-            <div className="flex flex-wrap gap-4 pt-4">
+            <div className="flex flex-wrap gap-3 pt-1">
               <Button
                 asChild
-                size="lg"
                 data-testid="button-linkedin"
               >
                 <a
@@ -72,13 +71,12 @@ export default function HeroSection() {
                   rel="noopener noreferrer"
                   className="flex items-center gap-2"
                 >
-                  <Linkedin className="h-5 w-5" />
+                  <Linkedin className="h-4 w-4" />
                   LinkedIn
                 </a>
               </Button>
               <Button
                 variant="outline"
-                size="lg"
                 asChild
                 data-testid="button-github"
               >
@@ -88,18 +86,17 @@ export default function HeroSection() {
                   rel="noopener noreferrer"
                   className="flex items-center gap-2"
                 >
-                  <Github className="h-5 w-5" />
+                  <Github className="h-4 w-4" />
                   GitHub
                 </a>
               </Button>
               <Button
                 variant="outline"
-                size="lg"
                 asChild
                 data-testid="button-contact"
               >
                 <a href="#contact" className="flex items-center gap-2">
-                  <Mail className="h-5 w-5" />
+                  <Mail className="h-4 w-4" />
                   Contact
                 </a>
               </Button>
@@ -115,7 +112,7 @@ export default function HeroSection() {
               <img
                 src={profileImage}
                 alt="Alan Wang"
-                className="relative w-64 h-64 md:w-80 md:h-80 rounded-full object-cover border-4 border-primary/30 shadow-2xl shadow-primary/20"
+                className="relative w-44 h-44 md:w-56 md:h-56 rounded-full object-cover border-4 border-primary/30 shadow-2xl shadow-primary/20"
                 data-testid="img-profile"
               />
               <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-primary rounded-full flex items-center justify-center shadow-lg">
@@ -128,11 +125,11 @@ export default function HeroSection() {
 
       <a 
         href="#education" 
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors cursor-pointer z-10"
+        className="absolute bottom-4 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-muted-foreground hover:text-primary transition-colors cursor-pointer z-10"
         data-testid="link-scroll-down"
       >
-        <span className="text-sm font-medium">Scroll to explore</span>
-        <ChevronDown className="h-5 w-5 animate-bounce" />
+        <span className="text-xs font-medium">Scroll to explore</span>
+        <ChevronDown className="h-4 w-4 animate-bounce" />
       </a>
     </section>
   );
