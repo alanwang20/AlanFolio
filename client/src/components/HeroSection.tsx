@@ -6,7 +6,7 @@ export default function HeroSection() {
   return (
     <section
       id="about"
-      className="relative flex items-center justify-center px-6 pt-8 pb-8 mt-16 overflow-hidden"
+      className="relative flex items-center justify-center px-6 pt-10 pb-10 mt-16 overflow-hidden"
     >
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-pulse" />
