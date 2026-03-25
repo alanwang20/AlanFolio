@@ -114,47 +114,38 @@ export default function ExperienceSection() {
         data-testid={`card-experience-${index}`}
       >
         <CardContent className="p-5">
-          <div className="flex items-center justify-between gap-4">
-            <div className="flex-1 min-w-0">
-              <div className="flex flex-wrap items-center gap-2 mb-1">
-                <h3 className="text-base font-semibold text-foreground" data-testid={`text-title-${index}`}>
-                  {exp.title}
-                </h3>
-                {exp.isUpcoming && (
-                  <Badge variant="default" className="flex items-center gap-1 shrink-0">
-                    <TrendingUp className="h-3 w-3" />
-                    Incoming
-                  </Badge>
-                )}
-                {exp.isIntern && (
-                  <Badge variant="secondary" className="shrink-0 text-xs">
-                    Internship
-                  </Badge>
-                )}
-              </div>
-              <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                <span className="text-sm font-medium text-primary" data-testid={`text-company-${index}`}>
-                  {exp.company}
-                </span>
-                {exp.department && (
-                  <span className="text-xs text-muted-foreground">{exp.department}</span>
-                )}
-                {exp.type && (
-                  <span className="text-xs text-muted-foreground">{exp.type}</span>
-                )}
-                <div className="flex items-center gap-1 text-muted-foreground">
-                  <Calendar className="h-3 w-3" />
-                  <span className="text-xs" data-testid={`text-period-${index}`}>{exp.period}</span>
-                </div>
-              </div>
+          <div className="flex items-start justify-between gap-4 mb-1">
+            <div className="flex flex-wrap items-center gap-2 flex-1 min-w-0">
+              <h3 className="text-base font-semibold text-foreground" data-testid={`text-title-${index}`}>
+                {exp.title}
+              </h3>
+              {exp.isUpcoming && (
+                <Badge variant="default" className="flex items-center gap-1 shrink-0">
+                  <TrendingUp className="h-3 w-3" />
+                  Incoming
+                </Badge>
+              )}
+              {exp.isIntern && (
+                <Badge variant="secondary" className="shrink-0 text-xs">
+                  Internship
+                </Badge>
+              )}
             </div>
+            <div className="flex items-center gap-1 text-muted-foreground shrink-0">
+              <Calendar className="h-3 w-3" />
+              <span className="text-xs" data-testid={`text-period-${index}`}>{exp.period}</span>
+            </div>
+          </div>
 
-            {hasDetails && (
-              <ChevronDown
-                className={`h-4 w-4 text-muted-foreground shrink-0 transition-transform duration-300 ${
-                  isExpanded ? 'rotate-180' : ''
-                }`}
-              />
+          <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+            <span className="text-sm font-medium text-primary" data-testid={`text-company-${index}`}>
+              {exp.company}
+            </span>
+            {exp.department && (
+              <span className="text-xs text-muted-foreground">{exp.department}</span>
+            )}
+            {exp.type && (
+              <span className="text-xs text-muted-foreground">{exp.type}</span>
             )}
           </div>
 
@@ -189,6 +180,16 @@ export default function ExperienceSection() {
                   </div>
                 )}
               </div>
+            </div>
+          )}
+
+          {hasDetails && (
+            <div className="flex justify-end mt-2">
+              <ChevronDown
+                className={`h-4 w-4 text-muted-foreground transition-transform duration-300 ${
+                  isExpanded ? 'rotate-180' : ''
+                }`}
+              />
             </div>
           )}
         </CardContent>
