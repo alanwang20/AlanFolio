@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Briefcase, Calendar, TrendingUp, ChevronDown } from 'lucide-react';
+import { Briefcase, Calendar, TrendingUp, ChevronDown, ChevronsDown, ChevronsUp } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
@@ -85,12 +85,107 @@ const experiences = [
   },
 ];
 
+const PRIMARY_COUNT = 5;
+
 export default function ExperienceSection() {
   const { ref, isVisible } = useScrollAnimation();
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+  const [showAdditional, setShowAdditional] = useState(false);
 
   const toggle = (index: number) => {
     setExpandedIndex(prev => (prev === index ? null : index));
+  };
+
+  const primaryExperiences = experiences.slice(0, PRIMARY_COUNT);
+  const additionalExperiences = experiences.slice(PRIMARY_COUNT);
+
+  const renderCard = (exp: typeof experiences[0], index: number) => {
+    const isExpanded = expandedIndex === index;
+    const hasDetails = exp.description.length > 0 || exp.skills.length > 0;
+
+    return (
+      <Card
+        key={index}
+        className={`transition-all duration-300 ${
+          exp.isUpcoming ? 'ring-2 ring-primary/40' : ''
+        } ${hasDetails ? 'cursor-pointer hover-elevate' : ''}`}
+        onClick={() => hasDetails && toggle(index)}
+        data-testid={`card-experience-${index}`}
+      >
+        <CardContent className="p-5">
+          <div className="flex items-center justify-between gap-4">
+            <div className="flex-1 min-w-0">
+              <div className="flex flex-wrap items-center gap-2 mb-1">
+                <h3 className="text-base font-semibold text-foreground" data-testid={`text-title-${index}`}>
+                  {exp.title}
+                </h3>
+                {exp.isUpcoming && (
+                  <Badge variant="default" className="flex items-center gap-1 shrink-0">
+                    <TrendingUp className="h-3 w-3" />
+                    Incoming
+                  </Badge>
+                )}
+              </div>
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+                <span className="text-sm font-medium text-primary" data-testid={`text-company-${index}`}>
+                  {exp.company}
+                </span>
+                {exp.department && (
+                  <span className="text-xs text-muted-foreground">{exp.department}</span>
+                )}
+                <span className="text-xs text-muted-foreground">{exp.location}</span>
+                <div className="flex items-center gap-1 text-muted-foreground">
+                  <Calendar className="h-3 w-3" />
+                  <span className="text-xs" data-testid={`text-period-${index}`}>{exp.period}</span>
+                </div>
+              </div>
+            </div>
+
+            {hasDetails && (
+              <ChevronDown
+                className={`h-4 w-4 text-muted-foreground shrink-0 transition-transform duration-300 ${
+                  isExpanded ? 'rotate-180' : ''
+                }`}
+              />
+            )}
+          </div>
+
+          {hasDetails && (
+            <div
+              className={`overflow-hidden transition-all duration-300 ${
+                isExpanded ? 'max-h-[600px] opacity-100 mt-4' : 'max-h-0 opacity-0'
+              }`}
+            >
+              <div className="pt-3 border-t border-border space-y-3">
+                {exp.description.length > 0 && (
+                  <ul className="space-y-2 list-disc list-inside text-foreground/90">
+                    {exp.description.map((item, i) => (
+                      <li key={i} className="text-sm leading-relaxed" data-testid={`text-description-${index}-${i}`}>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+                {exp.skills.length > 0 && (
+                  <div className="flex flex-wrap gap-2">
+                    {exp.skills.map((skill, i) => (
+                      <Badge
+                        key={i}
+                        variant="secondary"
+                        className="text-xs"
+                        data-testid={`badge-skill-${index}-${i}`}
+                      >
+                        {skill}
+                      </Badge>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+        </CardContent>
+      </Card>
+    );
   };
 
   return (
@@ -110,95 +205,38 @@ export default function ExperienceSection() {
         </div>
 
         <div className="space-y-3">
-          {experiences.map((exp, index) => {
-            const isExpanded = expandedIndex === index;
-            const hasDetails = exp.description.length > 0 || exp.skills.length > 0;
+          {primaryExperiences.map((exp, index) => renderCard(exp, index))}
 
-            return (
-              <Card
-                key={index}
-                className={`transition-all duration-300 ${
-                  exp.isUpcoming ? 'ring-2 ring-primary/40' : ''
-                } ${hasDetails ? 'cursor-pointer hover-elevate' : ''}`}
-                onClick={() => hasDetails && toggle(index)}
-                data-testid={`card-experience-${index}`}
-              >
-                <CardContent className="p-5">
-                  <div className="flex items-center justify-between gap-4">
-                    <div className="flex-1 min-w-0">
-                      <div className="flex flex-wrap items-center gap-2 mb-1">
-                        <h3 className="text-base font-semibold text-foreground" data-testid={`text-title-${index}`}>
-                          {exp.title}
-                        </h3>
-                        {exp.isUpcoming && (
-                          <Badge variant="default" className="flex items-center gap-1 shrink-0">
-                            <TrendingUp className="h-3 w-3" />
-                            Incoming
-                          </Badge>
-                        )}
-                      </div>
-                      <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-                        <span className="text-sm font-medium text-primary" data-testid={`text-company-${index}`}>
-                          {exp.company}
-                        </span>
-                        {exp.department && (
-                          <span className="text-xs text-muted-foreground">{exp.department}</span>
-                        )}
-                        <span className="text-xs text-muted-foreground">{exp.location}</span>
-                        <div className="flex items-center gap-1 text-muted-foreground">
-                          <Calendar className="h-3 w-3" />
-                          <span className="text-xs" data-testid={`text-period-${index}`}>{exp.period}</span>
-                        </div>
-                      </div>
-                    </div>
-
-                    {hasDetails && (
-                      <ChevronDown
-                        className={`h-4 w-4 text-muted-foreground shrink-0 transition-transform duration-300 ${
-                          isExpanded ? 'rotate-180' : ''
-                        }`}
-                      />
-                    )}
-                  </div>
-
-                  {hasDetails && (
-                    <div
-                      className={`overflow-hidden transition-all duration-300 ${
-                        isExpanded ? 'max-h-[600px] opacity-100 mt-4' : 'max-h-0 opacity-0'
-                      }`}
-                    >
-                      <div className="pt-3 border-t border-border space-y-3">
-                        {exp.description.length > 0 && (
-                          <ul className="space-y-2 list-disc list-inside text-foreground/90">
-                            {exp.description.map((item, i) => (
-                              <li key={i} className="text-sm leading-relaxed" data-testid={`text-description-${index}-${i}`}>
-                                {item}
-                              </li>
-                            ))}
-                          </ul>
-                        )}
-                        {exp.skills.length > 0 && (
-                          <div className="flex flex-wrap gap-2">
-                            {exp.skills.map((skill, i) => (
-                              <Badge
-                                key={i}
-                                variant="secondary"
-                                className="text-xs"
-                                data-testid={`badge-skill-${index}-${i}`}
-                              >
-                                {skill}
-                              </Badge>
-                            ))}
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                  )}
-                </CardContent>
-              </Card>
-            );
-          })}
+          <div
+            className={`overflow-hidden transition-all duration-500 ${
+              showAdditional ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0'
+            }`}
+          >
+            <div className="space-y-3 pt-3">
+              {additionalExperiences.map((exp, i) =>
+                renderCard(exp, PRIMARY_COUNT + i)
+              )}
+            </div>
+          </div>
         </div>
+
+        <button
+          onClick={() => setShowAdditional(prev => !prev)}
+          className="mt-4 flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mx-auto"
+          data-testid="button-toggle-additional"
+        >
+          {showAdditional ? (
+            <>
+              <ChevronsUp className="h-4 w-4" />
+              Hide additional experience
+            </>
+          ) : (
+            <>
+              <ChevronsDown className="h-4 w-4" />
+              Show additional experience
+            </>
+          )}
+        </button>
       </div>
     </section>
   );
