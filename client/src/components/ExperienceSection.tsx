@@ -18,7 +18,8 @@ const experiences = [
     title: 'Data Scientist',
     company: 'Cigna Group',
     period: 'May 2025 – Aug 2025',
-    type: 'Intern · Analytics Leadership Development Program',
+    isIntern: true,
+    type: 'Analytics Leadership Development Program',
     description: [
       'Conducted feature testing experiments on in-production account-level renewal risk models in Databricks, engineering 7,500+ clinical features from member-level data for account-level feature testing',
       'Validated experiment models against baseline models and identified a high-impact signal from features tied to significant model improvement',
@@ -31,7 +32,7 @@ const experiences = [
     company: 'Centene Corporation',
     department: 'Call Center Engineering',
     period: 'May 2024 – Aug 2024',
-    type: 'Intern',
+    isIntern: true,
     description: [
       'Led 4 projects utilizing Python/SQL to explore bot routing, agent staffing, authentication failure, and caller dropout. Analyzed data from Snowflake, engineered 10+ KPIs, clustered 50+ bots, and built business-oriented and data-driven visualizations',
       'Uncovered 10 bot routing inconsistencies affecting 750K+ annual callers and 3 daily staffing misalignments with call volume. Presented findings to 150+ stakeholders to guide call center optimization',
@@ -43,7 +44,7 @@ const experiences = [
     company: 'Centene Corporation',
     department: 'Product Support Analytics',
     period: 'May 2023 – Aug 2023',
-    type: 'Intern',
+    isIntern: true,
     description: [
       'Partnered with Recovery Platform teams to identify 7 critical KPIs for recovery claims performance, deployed live dashboard to production',
       'Engineered end-to-end analytics production pipeline and deployed 50+ Snowflake objects (Streams, Tasks, Views) to extract unstructured JSON data from Confluent Cloud, transform it into structured tables, and load it into Power BI for semi-hourly reporting',
@@ -54,7 +55,7 @@ const experiences = [
     title: 'Technical Product Owner / Manager',
     company: 'Centene Corporation',
     period: 'May 2022 – Dec 2022',
-    type: 'Intern',
+    isIntern: true,
     description: [
       'Automated onboarding process via Python (Selenium), cutting entitlement processing time by 55% and onboarding time from 2 months to 30 minutes (projected $170M savings)',
       'Led surveys and interviews to identify 3 onboarding bottlenecks and presented solutions to drive onboarding/entitlement process redesign',
@@ -65,7 +66,7 @@ const experiences = [
     title: 'Information Systems / Technology Consultant',
     company: 'Global Connect Group',
     period: 'Jan 2022 – Jan 2023',
-    type: 'Intern',
+    isIntern: true,
     description: [
       'Supported the group\'s platform-as-a-service model by troubleshooting SQL-hosted variable errors and integrating multiple business models across diverse sectors',
       'Managed online marketing content via SquareSpace while fostering strong relationships with CEOs and executives to align technical and business goals',
@@ -76,7 +77,7 @@ const experiences = [
     title: 'Account Executive',
     company: 'Flex ATL',
     period: 'May 2021 – Jun 2021',
-    type: 'Intern',
+    isIntern: true,
     description: [
       'Fundraised for the International Fund for Animal Welfare through direct marketing, developing strong skills in public speaking, customer engagement, and product promotion',
       'Collaborated with Regional Managers and Corporate Trainers to refine interpersonal communication and professional networking skills',
@@ -123,6 +124,11 @@ export default function ExperienceSection() {
                   <Badge variant="default" className="flex items-center gap-1 shrink-0">
                     <TrendingUp className="h-3 w-3" />
                     Incoming
+                  </Badge>
+                )}
+                {exp.isIntern && (
+                  <Badge variant="secondary" className="shrink-0 text-xs">
+                    Internship
                   </Badge>
                 )}
               </div>
