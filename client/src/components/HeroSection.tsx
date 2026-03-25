@@ -33,7 +33,7 @@ export default function HeroSection() {
       <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/60 to-background pointer-events-none z-0" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/8 via-transparent to-transparent pointer-events-none z-0" />
 
-      <div className="max-w-6xl w-full relative z-10">
+      <div className="max-w-6xl w-full mx-auto relative z-10">
         <div className="grid md:grid-cols-2 gap-8 items-center">
 
           {/* Left: photo on top, name/title/tagline below */}
