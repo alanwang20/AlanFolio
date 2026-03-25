@@ -1,6 +1,6 @@
-import { Users, Calendar } from 'lucide-react';
+import { useState } from 'react';
+import { Users, Calendar, ChevronDown } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const leadership = [
@@ -58,6 +58,54 @@ const leadership = [
   },
 ];
 
+interface RoleRowProps {
+  title: string;
+  period: string;
+  description: string[];
+  testId: string;
+}
+
+function RoleRow({ title, period, description, testId }: RoleRowProps) {
+  const [expanded, setExpanded] = useState(false);
+
+  return (
+    <div
+      className="cursor-pointer"
+      onClick={() => setExpanded(prev => !prev)}
+      data-testid={testId}
+    >
+      <div className="flex items-start justify-between gap-3">
+        <div className="flex-1 min-w-0 space-y-1.5">
+          <p className="text-sm font-semibold text-foreground">{title}</p>
+          <div className="flex items-center gap-1.5 text-muted-foreground">
+            <Calendar className="h-3 w-3 shrink-0" />
+            <span className="text-xs">{period}</span>
+          </div>
+        </div>
+        <ChevronDown
+          className={`h-4 w-4 text-muted-foreground shrink-0 mt-0.5 transition-transform duration-300 ${
+            expanded ? 'rotate-180' : ''
+          }`}
+        />
+      </div>
+
+      <div
+        className={`overflow-hidden transition-all duration-300 ${
+          expanded ? 'max-h-96 opacity-100 mt-3' : 'max-h-0 opacity-0'
+        }`}
+      >
+        <div className="pt-3 border-t border-border">
+          <ul className="space-y-1.5 list-disc list-inside text-foreground/80">
+            {description.map((item, i) => (
+              <li key={i} className="text-sm leading-relaxed">{item}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function LeadershipSection() {
   const { ref, isVisible } = useScrollAnimation();
 
@@ -70,43 +118,29 @@ export default function LeadershipSection() {
       }`}
     >
       <div className="max-w-6xl mx-auto">
-        <div className="flex items-center gap-3 mb-12">
+        <div className="flex items-center gap-3 mb-10">
           <Users className="h-8 w-8 text-primary" />
           <h2 className="text-3xl md:text-4xl font-bold" data-testid="text-leadership-title">
             Leadership & Asian Advocacy
           </h2>
         </div>
 
-        <div className="space-y-8">
+        <div className="space-y-4">
           {leadership.map((org, orgIndex) => (
-            <Card
-              key={orgIndex}
-              className="hover-elevate transition-all duration-300"
-              data-testid={`card-organization-${orgIndex}`}
-            >
-              <CardContent className="p-8">
-                <h3 className="text-2xl font-semibold text-primary mb-6" data-testid={`text-org-${orgIndex}`}>
+            <Card key={orgIndex} className="transition-all duration-300" data-testid={`card-organization-${orgIndex}`}>
+              <CardContent className="p-5">
+                <p className="text-sm font-semibold text-primary mb-4" data-testid={`text-org-${orgIndex}`}>
                   {org.organization}
-                </h3>
-                <div className="space-y-6">
+                </p>
+                <div className="space-y-4">
                   {org.roles.map((role, roleIndex) => (
-                    <div key={roleIndex} className="space-y-3">
-                      <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-2">
-                        <h4 className="text-lg font-semibold text-foreground" data-testid={`text-role-${orgIndex}-${roleIndex}`}>
-                          {role.title}
-                        </h4>
-                        <div className="flex items-center gap-2 text-muted-foreground">
-                          <Calendar className="h-4 w-4" />
-                          <span className="text-sm font-medium">{role.period}</span>
-                        </div>
-                      </div>
-                      <ul className="space-y-2 list-disc list-inside text-foreground/90">
-                        {role.description.map((item, i) => (
-                          <li key={i} className="text-base leading-relaxed">
-                            {item}
-                          </li>
-                        ))}
-                      </ul>
+                    <div key={roleIndex}>
+                      <RoleRow
+                        title={role.title}
+                        period={role.period}
+                        description={role.description}
+                        testId={`text-role-${orgIndex}-${roleIndex}`}
+                      />
                       {roleIndex < org.roles.length - 1 && (
                         <div className="border-b border-border mt-4" />
                       )}
