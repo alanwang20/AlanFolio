@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Folder, User, GraduationCap, ChevronDown } from 'lucide-react';
+import { Folder, User, GraduationCap, ChevronDown, ChevronsDown, ChevronsUp } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
@@ -188,8 +188,14 @@ function ProjectCard({ project, testId }: ProjectCardProps) {
   );
 }
 
+const ACADEMIC_PRIMARY_COUNT = 6;
+
 export default function ProjectsSection() {
   const { ref, isVisible } = useScrollAnimation();
+  const [showAdditional, setShowAdditional] = useState(false);
+
+  const primaryAcademic = academicProjects.slice(0, ACADEMIC_PRIMARY_COUNT);
+  const additionalAcademic = academicProjects.slice(ACADEMIC_PRIMARY_COUNT);
 
   return (
     <section
@@ -229,7 +235,7 @@ export default function ProjectsSection() {
             <h3 className="text-xl font-semibold">Academic Projects</h3>
           </div>
           <div className="grid lg:grid-cols-2 gap-3">
-            {academicProjects.map((project, index) => (
+            {primaryAcademic.map((project, index) => (
               <ProjectCard
                 key={index}
                 project={project}
@@ -237,6 +243,40 @@ export default function ProjectsSection() {
               />
             ))}
           </div>
+
+          <div
+            className={`overflow-hidden transition-all duration-500 ${
+              showAdditional ? 'max-h-[800px] opacity-100' : 'max-h-0 opacity-0'
+            }`}
+          >
+            <div className="grid lg:grid-cols-2 gap-3 pt-3">
+              {additionalAcademic.map((project, index) => (
+                <ProjectCard
+                  key={index}
+                  project={project}
+                  testId={`card-academic-project-additional-${index}`}
+                />
+              ))}
+            </div>
+          </div>
+
+          <button
+            onClick={() => setShowAdditional(prev => !prev)}
+            className="mt-4 flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mx-auto"
+            data-testid="button-toggle-additional-academic"
+          >
+            {showAdditional ? (
+              <>
+                <ChevronsUp className="h-4 w-4" />
+                Hide additional projects
+              </>
+            ) : (
+              <>
+                <ChevronsDown className="h-4 w-4" />
+                Show additional projects
+              </>
+            )}
+          </button>
         </div>
       </div>
     </section>
