@@ -6,19 +6,21 @@ import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const experiences = [
   {
-    title: 'Lead Analyst, Analytics Leadership Development Program',
+    title: 'Lead Analyst',
     company: 'Cigna Group',
     period: 'July 2025',
     location: 'Incoming',
+    type: 'Analytics Leadership Development Program',
     description: [],
     skills: [],
     isUpcoming: true,
   },
   {
-    title: 'Data Science Intern, Analytics Leadership Development Program',
+    title: 'Data Science',
     company: 'Cigna Group',
     period: 'May 2025 – Aug 2025',
     location: 'Remote',
+    type: 'Intern · Analytics Leadership Development Program',
     description: [
       'Conducted feature testing experiments on in-production account-level renewal risk models in Databricks, engineering 7,500+ clinical features from member-level data for account-level feature testing',
       'Validated experiment models against baseline models and identified a high-impact signal from features tied to significant model improvement',
@@ -27,11 +29,12 @@ const experiences = [
     skills: ['Databricks', 'Python', 'Feature Engineering', 'Predictive Modeling', 'Healthcare Analytics'],
   },
   {
-    title: 'Data Engineering Intern',
+    title: 'Data Engineering',
     company: 'Centene Corporation',
     department: 'Call Center Engineering',
     period: 'May 2024 – Aug 2024',
     location: 'Remote',
+    type: 'Intern',
     description: [
       'Led 4 projects utilizing Python/SQL to explore bot routing, agent staffing, authentication failure, and caller dropout. Analyzed data from Snowflake, engineered 10+ KPIs, clustered 50+ bots, and built business-oriented and data-driven visualizations',
       'Uncovered 10 bot routing inconsistencies affecting 750K+ annual callers and 3 daily staffing misalignments with call volume. Presented findings to 150+ stakeholders to guide call center optimization',
@@ -39,11 +42,12 @@ const experiences = [
     skills: ['Python', 'SQL', 'Snowflake', 'Data Visualization', 'Call Center Analytics'],
   },
   {
-    title: 'Data Engineering / Technical Product Owner Intern',
+    title: 'Data Engineering / Technical Product Owner',
     company: 'Centene Corporation',
     department: 'Product Support Analytics',
     period: 'May 2023 – Aug 2023',
     location: 'Remote',
+    type: 'Intern',
     description: [
       'Partnered with Recovery Platform teams to identify 7 critical KPIs for recovery claims performance, deployed live dashboard to production',
       'Engineered end-to-end analytics production pipeline and deployed 50+ Snowflake objects (Streams, Tasks, Views) to extract unstructured JSON data from Confluent Cloud, transform it into structured tables, and load it into Power BI for semi-hourly reporting',
@@ -51,10 +55,11 @@ const experiences = [
     skills: ['Power BI', 'Snowflake', 'Confluent Cloud', 'Analytics Engineering', 'ETL'],
   },
   {
-    title: 'Technical Product Owner / Manager Intern',
+    title: 'Technical Product Owner / Manager',
     company: 'Centene Corporation',
     period: 'May 2022 – Dec 2022',
     location: 'Remote',
+    type: 'Intern',
     description: [
       'Automated onboarding process via Python (Selenium), cutting entitlement processing time by 55% and onboarding time from 2 months to 30 minutes (projected $170M savings)',
       'Led surveys and interviews to identify 3 onboarding bottlenecks and presented solutions to drive onboarding/entitlement process redesign',
@@ -62,10 +67,11 @@ const experiences = [
     skills: ['Python', 'Selenium', 'Process Automation', 'Product Management'],
   },
   {
-    title: 'Information Systems / Technology Intern',
+    title: 'Information Systems / Technology',
     company: 'Global Connect Group',
     period: 'Jan 2022 – Jan 2023',
     location: 'Remote',
+    type: 'Intern',
     description: [
       'Supported the group\'s platform-as-a-service model by troubleshooting SQL-hosted variable errors and integrating multiple business models across diverse sectors',
       'Managed online marketing content via SquareSpace while fostering strong relationships with CEOs and executives to align technical and business goals',
@@ -73,10 +79,11 @@ const experiences = [
     skills: ['SQL', 'SquareSpace', 'Business Integration'],
   },
   {
-    title: 'Account Executive Intern',
+    title: 'Account Executive',
     company: 'Flex ATL',
     period: 'May 2021 – Jun 2021',
     location: 'Atlanta, GA',
+    type: 'Intern',
     description: [
       'Fundraised for the International Fund for Animal Welfare through direct marketing, developing strong skills in public speaking, customer engagement, and product promotion',
       'Collaborated with Regional Managers and Corporate Trainers to refine interpersonal communication and professional networking skills',
@@ -134,6 +141,9 @@ export default function ExperienceSection() {
                   <span className="text-xs text-muted-foreground">{exp.department}</span>
                 )}
                 <span className="text-xs text-muted-foreground">{exp.location}</span>
+                {exp.type && (
+                  <span className="text-xs text-muted-foreground">{exp.type}</span>
+                )}
                 <div className="flex items-center gap-1 text-muted-foreground">
                   <Calendar className="h-3 w-3" />
                   <span className="text-xs" data-testid={`text-period-${index}`}>{exp.period}</span>
