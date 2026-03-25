@@ -19,7 +19,7 @@ const experiences = [
     company: 'Cigna Group',
     period: 'May 2025 – Aug 2025',
     isIntern: true,
-    type: 'Analytics Leadership Development Program',
+    type: 'Pricing and Underwriting – R&D',
     description: [
       'Conducted feature testing experiments on in-production account-level renewal risk models in Databricks, engineering 7,500+ clinical features from member-level data for account-level feature testing',
       'Validated experiment models against baseline models and identified a high-impact signal from features tied to significant model improvement',
