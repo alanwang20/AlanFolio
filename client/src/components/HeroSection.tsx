@@ -53,10 +53,10 @@ export default function HeroSection() {
 
             <div className="space-y-4 text-base md:text-lg text-foreground/90">
               <p>
-                Passionate about solving problems in healthcare informatics, with hands-on experience building end-to-end data products including predictive models, pipelines, and decision-support systems. Incoming ALDP Lead Analyst at The Cigna Group.
+                Data Scientist passionate about applying machine learning, analytics engineering, and information systems to solve problems in healthcare informatics. Incoming ALDP Lead Analyst at The Cigna Group.
               </p>
               <p className="text-muted-foreground">
-                Completed an M.S. in Computational Data Analytics at Georgia Institute of Technology with a focus in machine learning, and simulation and healthcare analytics; currently building across healthcare research, data products, and AI-assisted development.
+                Holds a M.S. in Computational Data Analytics from the Georgia Institute of Technology, with industry and academic experience in building predictive models, engineering end-to-end analytics products, and Research and Development.
               </p>
             </div>
 
