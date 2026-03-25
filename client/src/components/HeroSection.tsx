@@ -112,7 +112,7 @@ export default function HeroSection() {
               <img
                 src={profileImage}
                 alt="Alan Wang"
-                className="relative w-44 h-44 md:w-56 md:h-56 rounded-full object-cover border-4 border-primary/30 shadow-2xl shadow-primary/20"
+                className="relative w-44 h-44 md:w-48 md:h-48 rounded-full object-cover border-4 border-primary/30 shadow-2xl shadow-primary/20"
                 data-testid="img-profile"
               />
               <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-primary rounded-full flex items-center justify-center shadow-lg">
