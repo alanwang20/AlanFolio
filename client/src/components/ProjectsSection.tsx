@@ -5,12 +5,28 @@ import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const personalProjects = [
   {
+    title: 'Healthcare Analytics Proof-of-Concept Portfolio',
+    description:
+      'A collection of fast-paced, proof-of-concept projects demonstrating the full analytics lifecycle—from data engineering and pipeline design to machine learning and insight generation—focused on solving practical healthcare problems.',
+    technologies: ['Python', 'SQL', 'Machine Learning', 'Healthcare Analytics'],
+    status: 'In Progress',
+    date: 'Present',
+  },
+  {
     title: 'Agentic Website Development (This site!)',
     description:
       'Developing a personal branding website on Replit, built with React, TypeScript, and Tailwind CSS, designed to dynamically showcase résumé content, projects, and experiences through a modern, responsive interface.',
     technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Replit'],
     status: 'In Progress',
     date: 'Fall 2025 – Present',
+  },
+  {
+    title: 'PinTrader AI',
+    description:
+      'Developing an end-to-end AI trading assistant for collectible pins, combining eBay API integrations with LLM-driven image-to-text generation. Leveraging Claude code to develop a platform enabling automated market analysis, intelligent pricing recommendations, inventory management, and rapid listing creation—reducing friction in the resale workflow.',
+    technologies: ['Python', 'eBay API', 'LLM', 'Claude', 'Image Recognition'],
+    status: 'In Progress',
+    date: 'Present',
   },
   {
     title: 'Agentic Resume Intelligence (ResuMind)',
@@ -28,7 +44,7 @@ const academicProjects = [
     description:
       'Conducting research at Emory University Hospital Midtown to identify procedural and spatial barriers to hand hygiene compliance through literature review, manager interviews, and data collection; developing an evidence-based design framework for improved compliance and preparing a publication-ready paper.',
     technologies: ['Research Design', 'Data Collection', 'Healthcare Analytics'],
-    status: 'In Progress',
+    status: 'In Progress (of publishing)',
     date: 'Fall 2025',
   },
   {
@@ -36,7 +52,7 @@ const academicProjects = [
     description:
       'Designing a discrete-time simulation model in Python with a user-friendly interface to compare recovery time and cost across telehealth, in-person, and hybrid care models; manually coding transition probabilities and recovery functions informed by existing healthcare literature.',
     technologies: ['Python', 'Simulation Modeling', 'Healthcare Analytics'],
-    status: 'In Progress',
+    status: 'Completed',
     date: 'Fall 2025',
   },
   {
@@ -44,7 +60,7 @@ const academicProjects = [
     description:
       'Integrating hospital-reported infection data with county-level socioeconomic variables to model and forecast MRSA infection rates using regression, time-series, and spatial deep learning techniques; uncovering social and structural factors driving infection disparities across California counties.',
     technologies: ['Python', 'Deep Learning', 'Time Series', 'Spatial Analysis'],
-    status: 'In Progress',
+    status: 'Completed',
     date: 'Fall 2025',
   },
   {
@@ -142,7 +158,7 @@ export default function ProjectsSection() {
                   </CardTitle>
                   <div className="flex flex-wrap gap-2 items-center">
                     <Badge 
-                      variant={project.status === 'In Progress' ? 'default' : 'secondary'}
+                      variant={project.status.startsWith('In Progress') ? 'default' : 'secondary'}
                       className="w-fit"
                     >
                       {project.status}
@@ -189,7 +205,7 @@ export default function ProjectsSection() {
                   </CardTitle>
                   <div className="flex flex-wrap gap-2 items-center">
                     <Badge 
-                      variant={project.status === 'In Progress' ? 'default' : 'secondary'}
+                      variant={project.status.startsWith('In Progress') ? 'default' : 'secondary'}
                       className="w-fit"
                     >
                       {project.status}
