@@ -1,5 +1,6 @@
-import { Folder, User, GraduationCap } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { useState } from 'react';
+import { Folder, User, GraduationCap, ChevronDown } from 'lucide-react';
+import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
@@ -8,7 +9,7 @@ const personalProjects = [
     title: 'Healthcare Analytics Proof-of-Concept Portfolio',
     description:
       'A collection of fast-paced, proof-of-concept projects demonstrating the full analytics lifecycle—from data engineering and pipeline design to machine learning and insight generation—focused on solving practical healthcare problems.',
-    technologies: ['Python', 'SQL', 'Machine Learning', 'Healthcare Analytics'],
+    technologies: ['Python', 'SQL', 'Spark', 'Databricks', 'Git', 'Data Engineering', 'Machine Learning', 'Healthcare Analytics'],
     status: 'In Progress',
     date: 'Present',
   },
@@ -121,6 +122,72 @@ const academicProjects = [
   },
 ];
 
+interface ProjectCardProps {
+  project: {
+    title: string;
+    description: string;
+    technologies: string[];
+    status: string;
+    date: string;
+  };
+  testId: string;
+}
+
+function ProjectCard({ project, testId }: ProjectCardProps) {
+  const [expanded, setExpanded] = useState(false);
+
+  return (
+    <Card
+      className="cursor-pointer hover-elevate transition-all duration-300"
+      onClick={() => setExpanded(prev => !prev)}
+      data-testid={testId}
+    >
+      <CardContent className="p-4">
+        <div className="flex items-start justify-between gap-3">
+          <div className="flex-1 min-w-0 space-y-2">
+            <p className="text-sm font-semibold text-foreground leading-snug">
+              {project.title}
+            </p>
+            <div className="flex flex-wrap gap-2 items-center">
+              <Badge
+                variant={project.status.startsWith('In Progress') ? 'default' : 'secondary'}
+                className="text-xs"
+              >
+                {project.status}
+              </Badge>
+              <span className="text-xs text-muted-foreground">{project.date}</span>
+            </div>
+            <div className="flex flex-wrap gap-1.5">
+              {project.technologies.map((tech, i) => (
+                <Badge key={i} variant="secondary" className="text-xs">
+                  {tech}
+                </Badge>
+              ))}
+            </div>
+          </div>
+          <ChevronDown
+            className={`h-4 w-4 text-muted-foreground shrink-0 mt-0.5 transition-transform duration-300 ${
+              expanded ? 'rotate-180' : ''
+            }`}
+          />
+        </div>
+
+        <div
+          className={`overflow-hidden transition-all duration-300 ${
+            expanded ? 'max-h-96 opacity-100 mt-3' : 'max-h-0 opacity-0'
+          }`}
+        >
+          <div className="pt-3 border-t border-border">
+            <p className="text-sm text-foreground/80 leading-relaxed">
+              {project.description}
+            </p>
+          </div>
+        </div>
+      </CardContent>
+    </Card>
+  );
+}
+
 export default function ProjectsSection() {
   const { ref, isVisible } = useScrollAnimation();
 
@@ -133,103 +200,41 @@ export default function ProjectsSection() {
       }`}
     >
       <div className="max-w-6xl mx-auto">
-        <div className="flex items-center gap-3 mb-12">
+        <div className="flex items-center gap-3 mb-10">
           <Folder className="h-8 w-8 text-primary" />
           <h2 className="text-3xl md:text-4xl font-bold" data-testid="text-projects-title">
             Projects
           </h2>
         </div>
 
-        <div className="mb-16">
-          <div className="flex items-center gap-2 mb-6">
-            <User className="h-6 w-6 text-primary" />
-            <h3 className="text-2xl font-semibold">Personal Projects</h3>
+        <div className="mb-10">
+          <div className="flex items-center gap-2 mb-4">
+            <User className="h-5 w-5 text-primary" />
+            <h3 className="text-xl font-semibold">Personal Projects</h3>
           </div>
-          <div className="grid lg:grid-cols-2 gap-6">
+          <div className="grid lg:grid-cols-2 gap-3">
             {personalProjects.map((project, index) => (
-              <Card
+              <ProjectCard
                 key={index}
-                className="hover-elevate transition-all duration-300 flex flex-col"
-                data-testid={`card-personal-project-${index}`}
-              >
-                <CardHeader className="space-y-3">
-                  <CardTitle className="text-xl leading-tight" data-testid={`text-personal-title-${index}`}>
-                    {project.title}
-                  </CardTitle>
-                  <div className="flex flex-wrap gap-2 items-center">
-                    <Badge 
-                      variant={project.status.startsWith('In Progress') ? 'default' : 'secondary'}
-                      className="w-fit"
-                    >
-                      {project.status}
-                    </Badge>
-                    <p className="text-xs text-muted-foreground">{project.date}</p>
-                  </div>
-                </CardHeader>
-                <CardContent className="flex-1 flex flex-col gap-4">
-                  <p className="text-sm text-foreground/90 leading-relaxed">
-                    {project.description}
-                  </p>
-                  <div className="flex flex-wrap gap-2 mt-auto">
-                    {project.technologies.map((tech, i) => (
-                      <Badge
-                        key={i}
-                        variant="secondary"
-                        className="text-xs"
-                      >
-                        {tech}
-                      </Badge>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
+                project={project}
+                testId={`card-personal-project-${index}`}
+              />
             ))}
           </div>
         </div>
 
         <div>
-          <div className="flex items-center gap-2 mb-6">
-            <GraduationCap className="h-6 w-6 text-primary" />
-            <h3 className="text-2xl font-semibold">Academic Projects</h3>
+          <div className="flex items-center gap-2 mb-4">
+            <GraduationCap className="h-5 w-5 text-primary" />
+            <h3 className="text-xl font-semibold">Academic Projects</h3>
           </div>
-          <div className="grid lg:grid-cols-2 gap-6">
+          <div className="grid lg:grid-cols-2 gap-3">
             {academicProjects.map((project, index) => (
-              <Card
+              <ProjectCard
                 key={index}
-                className="hover-elevate transition-all duration-300 flex flex-col"
-                data-testid={`card-academic-project-${index}`}
-              >
-                <CardHeader className="space-y-3">
-                  <CardTitle className="text-xl leading-tight" data-testid={`text-academic-title-${index}`}>
-                    {project.title}
-                  </CardTitle>
-                  <div className="flex flex-wrap gap-2 items-center">
-                    <Badge 
-                      variant={project.status.startsWith('In Progress') ? 'default' : 'secondary'}
-                      className="w-fit"
-                    >
-                      {project.status}
-                    </Badge>
-                    <p className="text-xs text-muted-foreground">{project.date}</p>
-                  </div>
-                </CardHeader>
-                <CardContent className="flex-1 flex flex-col gap-4">
-                  <p className="text-sm text-foreground/90 leading-relaxed">
-                    {project.description}
-                  </p>
-                  <div className="flex flex-wrap gap-2 mt-auto">
-                    {project.technologies.map((tech, i) => (
-                      <Badge
-                        key={i}
-                        variant="secondary"
-                        className="text-xs"
-                      >
-                        {tech}
-                      </Badge>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
+                project={project}
+                testId={`card-academic-project-${index}`}
+              />
             ))}
           </div>
         </div>
