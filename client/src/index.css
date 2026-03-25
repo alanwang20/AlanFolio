@@ -32,15 +32,15 @@
 
   --sidebar-border: 220 6% 86%;
 
-  --sidebar-primary: 210 82% 48%;
+  --sidebar-primary: 187 88% 36%;
 
-  --sidebar-primary-foreground: 210 15% 98%;
+  --sidebar-primary-foreground: 187 15% 98%;
 
   --sidebar-accent: 220 6% 88%;
 
   --sidebar-accent-foreground: 220 8% 15%;
 
-  --sidebar-ring: 210 82% 48%;
+  --sidebar-ring: 187 88% 36%;
 
   --popover: 220 6% 92%;
 
@@ -48,9 +48,9 @@
 
   --popover-border: 220 6% 84%;
 
-  --primary: 210 82% 48%;
+  --primary: 187 88% 36%;
 
-  --primary-foreground: 210 15% 98%;
+  --primary-foreground: 187 15% 98%;
 
   --secondary: 220 7% 86%;
 
@@ -69,12 +69,12 @@
   --destructive-foreground: 0 15% 98%;
 
   --input: 220 8% 72%;
-  --ring: 210 82% 48%;
-  --chart-1: 210 85% 35%;
-  --chart-2: 195 75% 38%;
-  --chart-3: 180 70% 32%;
-  --chart-4: 165 65% 35%;
-  --chart-5: 150 60% 32%;
+  --ring: 187 88% 36%;
+  --chart-1: 187 88% 36%;
+  --chart-2: 170 80% 32%;
+  --chart-3: 195 75% 38%;
+  --chart-4: 160 70% 34%;
+  --chart-5: 205 78% 40%;
 
   --font-sans: Inter, DM Sans, Open Sans, sans-serif;
   --font-serif: Georgia, serif;
@@ -150,15 +150,15 @@
 
   --sidebar-border: 220 5% 22%;
 
-  --sidebar-primary: 210 82% 48%;
+  --sidebar-primary: 187 88% 46%;
 
-  --sidebar-primary-foreground: 210 15% 98%;
+  --sidebar-primary-foreground: 187 15% 98%;
 
   --sidebar-accent: 220 6% 18%;
 
   --sidebar-accent-foreground: 220 8% 92%;
 
-  --sidebar-ring: 210 82% 48%;
+  --sidebar-ring: 187 88% 46%;
 
   --popover: 220 6% 16%;
 
@@ -166,9 +166,9 @@
 
   --popover-border: 220 6% 24%;
 
-  --primary: 210 82% 48%;
+  --primary: 187 88% 46%;
 
-  --primary-foreground: 210 15% 98%;
+  --primary-foreground: 187 15% 98%;
 
   --secondary: 220 7% 20%;
 
@@ -187,12 +187,12 @@
   --destructive-foreground: 0 15% 98%;
 
   --input: 220 8% 32%;
-  --ring: 210 82% 48%;
-  --chart-1: 210 85% 68%;
-  --chart-2: 195 75% 65%;
-  --chart-3: 180 70% 62%;
-  --chart-4: 165 65% 65%;
-  --chart-5: 150 60% 62%;
+  --ring: 187 88% 46%;
+  --chart-1: 187 88% 62%;
+  --chart-2: 170 80% 58%;
+  --chart-3: 195 75% 64%;
+  --chart-4: 160 70% 60%;
+  --chart-5: 205 78% 66%;
 
   --shadow-2xs: 0px 1px 2px 0px hsl(220 20% 0% / 0.10);
   --shadow-xs: 0px 1px 3px 0px hsl(220 20% 0% / 0.15);
