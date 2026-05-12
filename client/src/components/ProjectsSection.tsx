@@ -218,7 +218,7 @@ export default function ProjectsSection() {
             <User className="h-5 w-5 text-primary" />
             <h3 className="text-xl font-semibold">Personal Projects</h3>
           </div>
-          <div className="grid lg:grid-cols-2 gap-3">
+          <div className="grid lg:grid-cols-2 gap-3 items-start">
             {personalProjects.map((project, index) => (
               <ProjectCard
                 key={index}
@@ -234,7 +234,7 @@ export default function ProjectsSection() {
             <GraduationCap className="h-5 w-5 text-primary" />
             <h3 className="text-xl font-semibold">Academic Projects</h3>
           </div>
-          <div className="grid lg:grid-cols-2 gap-3">
+          <div className="grid lg:grid-cols-2 gap-3 items-start">
             {primaryAcademic.map((project, index) => (
               <ProjectCard
                 key={index}
@@ -249,7 +249,7 @@ export default function ProjectsSection() {
               showAdditional ? 'max-h-[800px] opacity-100' : 'max-h-0 opacity-0'
             }`}
           >
-            <div className="grid lg:grid-cols-2 gap-3 pt-3">
+            <div className="grid lg:grid-cols-2 gap-3 pt-3 items-start">
               {additionalAcademic.map((project, index) => (
                 <ProjectCard
                   key={index}
