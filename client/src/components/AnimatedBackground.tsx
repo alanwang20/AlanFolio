@@ -150,7 +150,7 @@ export default function AnimatedBackground() {
       }
 
       // 4 · ECG scanlines
-      ecgOffset.current += 1.4;
+      ecgOffset.current += 0.6;
       const period = 220;
       for (const { y: ey, base, amp } of [
         { y: h * 0.32, base: 0.18, amp: 18 },
