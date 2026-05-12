@@ -165,19 +165,6 @@ export default function AnimatedBackground() {
         ctx.strokeStyle = `rgba(24, 150, 138, ${base})`;
         ctx.lineWidth = 1;
         ctx.stroke();
-
-        const nearY = Math.abs(my - ey);
-        if (nearY < 120) {
-          const g = Math.max(0, 1 - nearY / 120);
-          ctx.beginPath();
-          for (let x = 0; x <= w; x += 2) {
-            const ph = (((x - ecgOffset.current) % period) + period) % period / period;
-            x === 0 ? ctx.moveTo(x, ey - ecgAmp(ph) * amp) : ctx.lineTo(x, ey - ecgAmp(ph) * amp);
-          }
-          ctx.strokeStyle = `rgba(30, 162, 148, ${g * 0.4})`;
-          ctx.lineWidth = 2;
-          ctx.stroke();
-        }
       }
 
       // 5 · particles
