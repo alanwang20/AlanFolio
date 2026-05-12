@@ -153,8 +153,9 @@ export default function AnimatedBackground() {
       ecgOffset.current += 0.6;
       const period = 220;
       for (const { y: ey, base, amp } of [
-        { y: h * 0.32, base: 0.18, amp: 18 },
-        { y: h * 0.67, base: 0.11, amp: 13 },
+        { y: h * 0.22, base: 0.18, amp: 18 },
+        { y: h * 0.55, base: 0.13, amp: 15 },
+        { y: h * 0.85, base: 0.10, amp: 12 },
       ]) {
         ctx.beginPath();
         for (let x = 0; x <= w; x += 2) {
